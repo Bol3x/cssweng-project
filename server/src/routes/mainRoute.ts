@@ -23,7 +23,7 @@ export const LoadRoutes = (app: Router) => {
 
 	//index is in build, from react app in `client`
 	app.get('/', (req, res) => {
-		res.sendFile('index.html');
+		res.sendFile('index.html', {root: '../../build'});
   	});	
 
 	app.use(ErrorHandler);
