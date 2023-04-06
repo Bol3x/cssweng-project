@@ -4,7 +4,6 @@
  */
 import express, { Express } from 'express';
 import cors from 'cors';
-import methodOverride from 'method-override';
 
 import flash from 'express-flash';
 import session from 'express-session';
@@ -25,8 +24,6 @@ export const loadMiddlewares = (app: Express) => {
 	app.use(cors(corsOptions));
 	app.use(express.json());
 	app.use(express.urlencoded({ extended: true }));
-	app.use(methodOverride('_method'));
-
 	//user authentication
 	app.use(flash());
 	app.use(
