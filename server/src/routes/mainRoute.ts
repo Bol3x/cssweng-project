@@ -27,6 +27,6 @@ export const LoadRoutes = (app: Router) => {
 
 	//redirect all other routes to index
 	app.get('*', (req, res) => {
-		res.sendFile('index.html', {root: 'build'});
+		res.sendFile('index.html', {root: '../build'});
 	})
 };
