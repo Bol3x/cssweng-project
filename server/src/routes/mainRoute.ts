@@ -22,14 +22,11 @@ export const LoadRoutes = (app: Router) => {
 	app.use('/auth', UserAuthRouter);
 
 	//index is in build, from react app in `client`
-	app.get('/', (req, res) => {
-		res.sendFile('index.html', {root: '../../build'});
-  	});	
 
 	app.use(ErrorHandler);
 
 	//redirect all other routes to index
 	app.get('*', (req, res) => {
-		res.redirect('/');
+		res.sendFile('index.html', {root: 'build'});
 	})
 };
