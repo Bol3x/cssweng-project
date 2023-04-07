@@ -3,7 +3,6 @@
  * @description This file contains all the settings and dependencies for the application
  */
 import express, { Express } from 'express';
-import path from 'path';
 import cors from 'cors';
 
 import flash from 'express-flash';
