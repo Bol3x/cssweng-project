@@ -28,7 +28,7 @@ import { verifyAuthAPI } from './api/user/verifyAuthAPI';
 import ConfirmUserDelPopup from './components/popups/confirmUserDelPopup';
 
 //url to fetch data from
-const FETCH_URL = 'http://localhost:3001';
+const   = 'http://localhost:3001';
 
 
 function AccountPage() {
@@ -95,7 +95,7 @@ function AccountPage() {
 		setIsLoading(true);
 		try{
 			setStatusPopup(true);
-			await UserAddAPI(data, FETCH_URL)
+			await UserAddAPI(data,  )
 			updateDisplay('User added successfully.');
 		}
 		catch(err){
@@ -108,7 +108,7 @@ function AccountPage() {
 	const deleteUser = async () => {
 		setIsLoading(true);
 		try{
-			await UserDeleteAPI({userID: userDeleteEmail, FETCH_URL});
+			await UserDeleteAPI({userID: userDeleteEmail,  });
 			updateDisplay('User deleted successfully.');
 		}
 		catch(err){
@@ -134,7 +134,7 @@ function AccountPage() {
 	const fetchData = async () => {
 		setIsFetching(true);
 		try{	
-			const resUsers = await UserGetAPI({FETCH_URL});
+			const resUsers = await UserGetAPI({ });
 			setUsers(resUsers);
 			
 		}catch(err){
