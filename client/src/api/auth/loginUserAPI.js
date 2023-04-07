@@ -16,6 +16,9 @@ export const loginUserAPI = async (data) => {
 				}
 			}
 		)
+		if (result.status !== 200){
+			throw new Error("Login failed");
+		}
 		//return userdata
 		const userdata = result.data.userdata;
 		return userdata
