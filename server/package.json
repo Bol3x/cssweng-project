@@ -4,16 +4,16 @@
   "description": "Backend functionality of inventory system",
   "main": "index.js",
   "scripts": {
-    "build": "npx tsc",
-	"build-client": "cd client && npm install && npm run build",
-    "start": "node dist/index.js",
+    "build": "npm i && npx tsc",
+    "build-client": "cd ../client && npm install && npm run build",
+    "start": "node ./dist/index.js",
     "devStart": "npx nodemon ./src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Carlo Roleda",
   "license": "ISC",
   "dependencies": {
-    "@prisma/client": "^4.11.0",
+    "@prisma/client": "^4.12.0",
     "@quixo3/prisma-session-store": "^3.1.10",
     "@types/bcryptjs": "^2.4.2",
     "@types/cors": "^2.8.13",
