@@ -3,6 +3,7 @@
  * @description This file contains all the settings and dependencies for the application
  */
 import express, { Express } from 'express';
+import path from 'path';
 import cors from 'cors';
 
 import flash from 'express-flash';
@@ -41,5 +42,5 @@ export const loadMiddlewares = (app: Express) => {
 
 	//set path to build folder
 	app.set('view engine', 'html');
-	app.use(express.static('build'));
+	app.use(express.static('../client/build'));
 }
