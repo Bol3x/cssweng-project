@@ -31,9 +31,13 @@ export const loadMiddlewares = (app: Express) => {
 			secret: process.env.SESSION_SECRET ?? 'secret',
 			resave: false,
 			saveUninitialized: false,
+			proxy: true,
+			name: 'sid',
 			cookie: {
+				httpOnly: true,
 				secure: process.env.NODE_ENV === 'production' ? true : false,
 				maxAge: 1000 * 60 * 60 * 24, // 1 day
+				sameSite: 'none',
 			}
 	}));
 	app.use(passport.session());
