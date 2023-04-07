@@ -16,11 +16,13 @@ const LoadRoutes = (app) => {
     app.use('/category', userCheckAuth_1.default, categoryRoutes_1.default);
     app.use('/user', userCheckAuth_1.default, userCheckAdmin_1.default, userRoutes_1.default);
     app.use('/auth', userAuthRoutes_1.default);
-    //index is in build, from react app in `client`
     app.use(errorResponse_1.default);
     //redirect all other routes to index
-    app.get('/*', (req, res) => {
+    app.get('/', (req, res) => {
         res.sendFile('index.html', { root: 'build' });
+    });
+    app.use('/*', (req, res) => {
+        res.redirect('/');
     });
 };
 exports.LoadRoutes = LoadRoutes;

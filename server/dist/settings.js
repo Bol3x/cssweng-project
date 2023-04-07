@@ -10,7 +10,6 @@ exports.loadMiddlewares = void 0;
  * @description This file contains all the settings and dependencies for the application
  */
 const express_1 = __importDefault(require("express"));
-const path_1 = __importDefault(require("path"));
 const cors_1 = __importDefault(require("cors"));
 const express_flash_1 = __importDefault(require("express-flash"));
 const express_session_1 = __importDefault(require("express-session"));
@@ -44,6 +43,6 @@ const loadMiddlewares = (app) => {
     app.use(passport_1.default.initialize());
     //set path to build folder
     app.set('view engine', 'html');
-    app.use(express_1.default.static(path_1.default.join(__dirname, '../client/build')));
+    app.use(express_1.default.static('../client/build'));
 };
 exports.loadMiddlewares = loadMiddlewares;
