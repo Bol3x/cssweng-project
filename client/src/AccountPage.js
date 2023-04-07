@@ -27,10 +27,6 @@ import SidebarAccount from './components/users/account management/sidebarAccount
 import { verifyAuthAPI } from './api/user/verifyAuthAPI';
 import ConfirmUserDelPopup from './components/popups/confirmUserDelPopup';
 
-//url to fetch data from
-const   = 'http://localhost:3001';
-
-
 function AccountPage() {
 
 	const {user} = useAuth();
