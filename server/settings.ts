@@ -37,7 +37,7 @@ export const loadMiddlewares = (app: Express) => {
 				httpOnly: true,
 				secure: process.env.NODE_ENV === 'production' ? true : false,
 				maxAge: 1000 * 60 * 60 * 24, // 1 day
-				sameSite: 'none',
+				sameSite: 'lax',
 			}
 	}));
 	app.use(passport.session());
