@@ -113,6 +113,7 @@ function AccountPage() {
 	}
 
 	const verifyAdmin = async (data) => {
+		setIsLoading(true)
 		setStatusPopup(true)
 		try{
 			await verifyAuthAPI({password: pass});
