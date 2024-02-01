@@ -2,13 +2,13 @@
  * @file index.ts
  * @description This file is the entry point of the application
  */
-import express, {Express, Request, Response} from 'express';
+import express, {Express} from 'express';
 import passport from 'passport';
 
 //custom imports
 import { loadMiddlewares } from './settings';
-import { LoadRoutes } from './routes/mainRoute';
-import initializePassport from './services/user/auth/passport/passport-config';
+import { LoadRoutes } from './src/routes/mainRoute';
+import initializePassport from './src/services/user/auth/passport/passport-config';
 
 initializePassport(passport);
 

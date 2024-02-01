@@ -3,7 +3,7 @@ import axios from 'axios';
 export const loginUserAPI = async (data) => {
 
 	try{
-		const result = await axios.post("/login", 
+		const result = await axios.post("/auth/login", 
 		JSON.stringify({
 			email: data.email,
 			password: data.password
@@ -16,6 +16,11 @@ export const loginUserAPI = async (data) => {
 				}
 			}
 		)
+
+		if (result.status !== 200){
+			throw new Error("Error logging in. Please try again.");
+		}
+
 		//return userdata
 		const userdata = result.data.userdata;
 		return userdata
