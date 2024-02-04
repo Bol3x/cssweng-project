@@ -2,13 +2,17 @@ import bcryptjs from "bcryptjs";
 
 import userGetUnique from "../../api/userGetUnique";
 import DatabaseError from "../../../error/databaseError";
+import { user, user_session } from "@prisma/client";
 
 export const authenticateUser = async (email: string, password: string, done: any) => {
 	try{
-		const user = await userGetUnique({email: email.toLowerCase()});
+		//get user with matching email (UID)
+		const user: user | null = await userGetUnique(email.toLowerCase());
 		if(user == null){
 			return done(null, false, {message: 'No user with that email'});
 		}
+		
+		//check password here
 		if (await bcryptjs.compare(password, user.pass)){
 			return done(null, user);
 		}

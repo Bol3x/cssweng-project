@@ -1,11 +1,11 @@
 
 import prisma from "../../../repositories/prismaClient";
 
-export default async function userGetUnique(data: any){
+export default async function userGetUnique(email:string){
 	try{
 		const user = await prisma.user.findUnique({
 			where: {
-				email: data.email
+				email: email
 			},
 			include: {
 				user_category: true,

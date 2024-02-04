@@ -4,11 +4,10 @@ import { Request, Response } from "express";
 
 export const verifyAuth = async (req: Request, res: Response) => {
 	if(req.isAuthenticated()){
-		const user = await req.user;
 		//@ts-ignore
-		res.status(200).json({message: "User is already logged in", userdata: {name: user.name, email: user.email, type: user.user_category.utype_title, expiry: req.session.cookie.expires}})
+		res.status(200).json({message: "User is already logged in", userdata: req.user})
 	}
 	else{
 		res.status(403).send({message: 'You are not logged in'});
 	}
-}
+} 

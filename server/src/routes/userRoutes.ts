@@ -12,13 +12,14 @@ import userRemove from '../services/user/userRemove';
 import UserTypeRouter from './usertypeRoutes';
 import validateUserdata from '../services/middleware validation/validateUserdata';
 import verifyAdmin from '../services/user/auth/verifyAdmin';
+import userAddAdmin from '../services/user/userAddAdmin';
 
 const UserRouter = express.Router();
 
 UserRouter.use('/type', UserTypeRouter);
 
 UserRouter.get('/', (req, res) => {
-	res.render('addUser');
+	res.render('adduser');
 });
 
 UserRouter.get('/get', userGet);

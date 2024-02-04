@@ -21,7 +21,7 @@ export default async (req: Request, res: Response, next: NextFunction) => {
 				description,
 				product_category: {
 					connect: {
-						category_ID: category,
+						category_ID: Number(category),
 					}
 				},
 				avg_value: Number(price) * Number(stock),
@@ -31,6 +31,7 @@ export default async (req: Request, res: Response, next: NextFunction) => {
 		});
 		res.json(product);
 	} catch (error : any) {
+		console.log(error)
 		next(DatabaseError.DBError(error.code));
 	}
 }

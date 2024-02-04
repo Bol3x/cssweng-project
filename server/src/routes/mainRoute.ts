@@ -25,7 +25,12 @@ export const LoadRoutes = (app: Router) => {
 
 	//main route to react app
 	app.get('/', (req, res) => {
-		res.sendFile('index.html', {root: 'build'});
+		if (req.isAuthenticated()){
+			//@ts-ignore
+			res.render('index', {name:  req.user.name});
+		}
+		else
+			res.render('login')
 	})
 
 	//redirect all other routes to index

@@ -4,19 +4,20 @@
 
 import { Request, Response, NextFunction } from 'express';
 import usertypeGetUnique from '../api/usertypeGetUnique';
+import { user, user_category } from '@prisma/client';
+import userGetUnique from '../api/userGetUnique';
 
 export default async function userCheckAdmin(req: Request, res: Response, next: NextFunction){
 
 	try{
-		const user = await req.user;
 		//@ts-ignore
-		const usertype = await usertypeGetUnique({utype_ID: user.type});
-		//@ts-ignore
-		if (usertype.utype_title == "Admin"){
-			return next();
-		}
-		
-		res.status(401).send("You do not have access to this page. Please contact your administrator.");
+		userGetUnique(req.user.email).then((user : user) => {
+			//@ts-ignore
+			if (user.user_category.utype_title == "Admin")
+				return next();
+
+			res.status(401).send("You do not have access to this page.");
+		})
 	}
 	catch(err){
 		console.log(err);

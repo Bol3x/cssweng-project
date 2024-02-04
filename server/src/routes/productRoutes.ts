@@ -11,9 +11,15 @@ import productEdit from '../services/products/productEdit';
 import productDelete from '../services/products/productRemove';
 
 import userCheckAdmin from '../services/user/auth/userCheckAdmin';
-
+import categoryGet from '../services/products/category/categoryGet';
 
 const ProductRouter: Router = express.Router();
+
+ProductRouter.get('/add', (req, res) => {
+	categoryGet().then((categories: any) =>{
+		res.render('addproduct', {categories: categories});
+	})
+});
 
 ProductRouter.post('/add', userCheckAdmin, productAdd);
 ProductRouter.get('/get', productGet);

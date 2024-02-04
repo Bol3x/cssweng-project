@@ -5,14 +5,14 @@
 
 //explicit Prisma dependency
 import prisma from "../../../repositories/prismaClient";
+import DatabaseError from "../../error/databaseError";
 
-import { Request, Response, NextFunction } from "express";
-
-export default async (req: Request, res: Response, next: NextFunction) => {
+export default async () => {
 	try {
-		const category = await prisma.product_category.findMany();
-		res.json(category);
-	} catch (error) {
-		next(error);
+		const categories = await prisma.product_category.findMany();
+		return categories
+	} catch (error : any) {
+		console.log(error)
+		throw DatabaseError.DBError(error.code);
 	}
 }

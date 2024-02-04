@@ -17,7 +17,7 @@ export default async (req: Request, res: Response, next: NextFunction) => {
 		const isPasswordValid = validatePassword(password);
 
 		//edge case
-		if (email === password.toLowerCase()) throw new Error('Email cannot be your password!!');
+		if (email === password.toLowerCase()) throw new Error('The Email cannot be your password!!!');
 
 		if (isNameValid && isPasswordValid && isEmailValid) 
 			next();
