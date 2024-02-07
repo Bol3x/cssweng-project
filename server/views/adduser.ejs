@@ -9,10 +9,18 @@
 		<form action="/user/add" method="POST">
 			<label for="name">Username</label>
 			<input type="text" name="name" id="name">
+
 			<label for="password">Password</label>
 			<input type="text" name="password" id="password">
+
 			<label for="email">Email</label>
 			<input type="text" name="email" id="email">
+
+			<label for="phone_num">Mobile Number</label>
+			<input type="number" name="phone_num" id="phone_num" maxlength="11">
+
+			<label for="picture">Icon</label>
+			<input type="file" id="picture" name="picture", accept="image/*">
 			<br />
 			<input type="submit" value="Submit">
 		</form>

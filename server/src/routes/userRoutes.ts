@@ -14,6 +14,9 @@ import validateUserdata from '../services/middleware validation/validateUserdata
 import verifyAdmin from '../services/user/auth/verifyAdmin';
 import userAddAdmin from '../services/user/userAddAdmin';
 
+const multer = require('multer');
+const upload = multer({dest: 'uploads/'});
+
 const UserRouter = express.Router();
 
 UserRouter.use('/type', UserTypeRouter);
@@ -23,7 +26,7 @@ UserRouter.get('/', (req, res) => {
 });
 
 UserRouter.get('/get', userGet);
-UserRouter.post('/add', validateUserdata, userAddEmployee);
+UserRouter.post('/add', validateUserdata, upload.single('file'), userAddEmployee);
 UserRouter.post('/check', verifyAdmin);
 UserRouter.delete('/:email', userRemove);
 

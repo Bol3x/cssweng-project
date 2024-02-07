@@ -2,7 +2,7 @@ import bcryptjs from "bcryptjs";
 
 import userGetUnique from "../../api/userGetUnique";
 import DatabaseError from "../../../error/databaseError";
-import { user, user_session } from "@prisma/client";
+import { user } from "@prisma/client";
 
 export const authenticateUser = async (email: string, password: string, done: any) => {
 	try{

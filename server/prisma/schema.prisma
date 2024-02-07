@@ -3,34 +3,34 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
   relationMode = "prisma"
 }
 
 model product {
-  product_ID       Int               @id @default(autoincrement()) @unique(map: "product_id_UNIQUE")
+  product_ID       Int               @id @unique(map: "product_id_UNIQUE") @default(autoincrement())
   name             String            @db.VarChar(255)
   brand            String            @db.VarChar(255)
-  description	   String?			 @db.VarChar(255)
+  description      String?           @db.VarChar(255)
   type             Int
   stock            Int               @default(0) @db.UnsignedInt
   last_updated     DateTime          @db.DateTime(0)
-  sell_price       Decimal		 	 @default(0) @db.Decimal(10,2)
+  sell_price       Decimal           @default(0) @db.Decimal(10, 2)
   sales            Int               @default(0) @db.UnsignedInt
-  revenue          Decimal           @default(0) @db.Decimal(10,2) //@default(dbgenerated("sales * sell_price"))
-  avg_value        Decimal           @default(0) @db.Decimal(10,2) //@default(dbgenerated("stock * sell_price"))
-  order_amt	   	   Int           	 @default(0) @db.UnsignedInt
+  revenue          Decimal           @default(0) @db.Decimal(10, 2) //@default(dbgenerated("sales * sell_price"))
+  avg_value        Decimal           @default(0) @db.Decimal(10, 2) //@default(dbgenerated("stock * sell_price"))
+  order_amt        Int               @default(0) @db.UnsignedInt
   product_category product_category? @relation(fields: [type], references: [category_ID], onUpdate: NoAction, map: "fk_ptype")
 
-  @@index([type], map: "fk_ptype_idx")
   @@unique([name, brand], map: "name_brand_UNIQUE")
+  @@index([type], map: "fk_ptype_idx")
 }
 
 model product_category {
-  category_ID   Int       @id @unique(map: "category_id_UNIQUE") @default(autoincrement())
-  name          String    @db.VarChar(255) @unique(map: "name_UNIQUE")
-  products      product[]
+  category_ID Int       @id @unique(map: "category_id_UNIQUE") @default(autoincrement())
+  name        String    @unique(map: "name_UNIQUE") @db.VarChar(255)
+  products    product[]
 }
 
 model user {
@@ -38,7 +38,9 @@ model user {
   type          Int
   pass          String        @db.VarChar(255)
   email         String        @unique(map: "email_UNIQUE") @db.VarChar(255)
-  name      	String        @db.VarChar(255)
+  name          String        @db.VarChar(255)
+  phone_num     String        @db.VarChar(15)
+  profile_pic   String?
   date_created  DateTime      @db.DateTime(0)
   user_category user_category @relation(fields: [type], references: [utype_ID], onDelete: Cascade, onUpdate: NoAction, map: "fk_utype")
 
@@ -48,6 +50,6 @@ model user {
 model user_category {
   utype_ID    Int    @id @default(autoincrement())
   utype_title String @unique(map: "utype_title_UNIQUE") @db.VarChar(255)
-  
-  user        user[]
+
+  user user[]
 }

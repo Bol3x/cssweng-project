@@ -4,11 +4,8 @@ import DatabaseError from "../../error/databaseError";
 
 export default async function userAdd(data: any){
 	try{
-
-		const dupe = await prisma.user.findFirst(data.email);
-
-		console.log(dupe);
-
+		
+		const dupe = await prisma.user.findFirst({where: {email: data.email}});
 		if (dupe){
 			throw {code:"P2002"};
 		}
@@ -19,6 +16,7 @@ export default async function userAdd(data: any){
 				name: data.name,
 				email: data.email,
 				pass: hashedPassword,
+				phone_num: data.phone_num,
 				date_created: new Date(),
 				user_category: {
 					connect: {
