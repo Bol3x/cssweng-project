@@ -12,7 +12,7 @@ import  userAdd  from "./api/userAdd";
 export default async (req: Request, res: Response, next: NextFunction) => {
 	try {
 		//combine req.body with usertype string into one object
-		const data = { ...req.body, utype_title: "Employee"}
+		const data = { ...req.body, img: req.file?.path, utype_title: "Employee"}
 		data.email = data.email.toLowerCase();
 		
 		const user = await userAdd(data);

@@ -17,6 +17,7 @@ export default async function userAdd(data: any){
 				email: data.email,
 				pass: hashedPassword,
 				phone_num: data.phone_num,
+				profile_pic: data.img,
 				date_created: new Date(),
 				user_category: {
 					connect: {

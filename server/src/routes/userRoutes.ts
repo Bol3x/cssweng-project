@@ -4,18 +4,45 @@
  */
 
 import express, { Express } from 'express';
+import multer from "multer";
 
 import userAddEmployee from '../services/user/userAddEmployee';
 import userGet from '../services/user/userGetEmployees';
 import userRemove from '../services/user/userRemove';
 
 import UserTypeRouter from './usertypeRoutes';
-import validateUserdata from '../services/middleware validation/validateUserdata';
+import validateUserdata from '../services/validation/validateUserdata';
 import verifyAdmin from '../services/user/auth/verifyAdmin';
-import userAddAdmin from '../services/user/userAddAdmin';
 
-const multer = require('multer');
-const upload = multer({dest: 'uploads/'});
+//
+const whitelist_filetypes = [
+	'image/png',
+	'image/jpeg',
+	'image/jpg',
+	'image/webp'
+  ]
+
+//multer config
+//probably change destination to a web storage in prod
+const upload = multer({
+	storage: multer.diskStorage({
+		destination: function (req, file, cb) {
+		  cb(null, 'public/uploads')
+		},
+		filename: function (req, file, cb) {
+		  const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
+		  cb(null, file.fieldname + '-' + uniqueSuffix)
+		}
+	  }),
+	  
+	fileFilter: (req, file, cb) => {
+	if (!whitelist_filetypes.includes(file.mimetype)) {
+		return cb(new Error('file is not allowed'))
+	}
+
+	cb(null, true)
+	}
+})
 
 const UserRouter = express.Router();
 
@@ -26,7 +53,8 @@ UserRouter.get('/', (req, res) => {
 });
 
 UserRouter.get('/get', userGet);
-UserRouter.post('/add', validateUserdata, upload.single('file'), userAddEmployee);
+UserRouter.post('/add', upload.single('img'), validateUserdata(whitelist_filetypes), userAddEmployee);
+
 UserRouter.post('/check', verifyAdmin);
 UserRouter.delete('/:email', userRemove);
 
