@@ -1,19 +1,25 @@
 # 9 Works Inventory Management System
 
 Developed By Team 1 - CSSWENG S11
-This is a project for 9 Works Hardware, also in fulfillment of the CSSWENG course.
+This was a project for 9 Works Hardware, in fulfillment of the CSSWENG course.
 
-Currently hosted at Render: https://nineworks-inventory.onrender.com/
+This project is being reworked to incorporate stronger security measures, as part of the CSSECDV course.
 
 This program is an inventory management system for use of 9 Works Hardware.
 
-Developed in React and Express, this application allows the user to add, edit, search, and remove products.
-Also includes user-based permission for pages.
+Developed in Express, this application allows the user to add, edit, search, and remove products.
+Admins are provided full access to the database contents and can add new employees into the system, 
+while employees can only view and edit existing products.
+
+Prerequisites:
+NodeJS
+MySQL Server
 
 For testing:
-install all dependencies on both `client` and `server` folders using ``npm install`` on their directories.
+install all dependencies on the `server` folder using ``npm install`` on their directories.
+initialize the database by first calling `npx prisma migrate dev --name init`, 
+and then call `npm run init-db` to initialize the database with an initial admin account.
+
 
 On the Server directory:
-Run `npm run build`, then run `npm run start` and open the application through `http://localhost:3000`
-
-The Planetscale connection has been removed in order to protect access of the database.
+Call `npm run start` within the server folder and open the application through `http://localhost:3001`
