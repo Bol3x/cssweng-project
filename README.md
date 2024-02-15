@@ -20,6 +20,7 @@ install all dependencies on the `server` folder using ``npm install`` on their d
 initialize the database by first calling `npx prisma migrate dev --name init`, 
 and then call `npm run init-db` to initialize the database with an initial admin account.
 
+in the .env file, ensure that the contents adhere to the credentials of the root (i.e. change the password to the password set of the root local instance of the database)
 
 On the Server directory:
 Call `npm run start` within the server folder and open the application through `http://localhost:3001`
