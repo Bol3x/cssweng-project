@@ -11,5 +11,5 @@ export default function userCheckAuth(req: Request, res: Response, next: NextFun
 		return next();
 	}
 
-	res.status(401).json({message: 'You are not logged in'});
+	res.status(401).render("message", {message: 'You are not logged in'});
 }

@@ -20,7 +20,7 @@ export default async (req: Request, res: Response, next: NextFunction) => {
 
 		console.log("added user: ")
 		console.log(user)
-		res.status(200).send("Successfully added user.");
+		res.status(200).render("message", {message: "User Successfully created"});
 
 		
 	} catch (error : any) {

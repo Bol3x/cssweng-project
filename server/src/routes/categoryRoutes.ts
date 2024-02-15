@@ -15,7 +15,7 @@ import userCheckAdmin from '../services/user/auth/userCheckAdmin.js';
 
 const CategoryRouter: Router = express.Router();
 
-CategoryRouter.get('/add', (req, res) => {
+CategoryRouter.get('/add', userCheckAdmin, (req, res) => {
 	res.render('addCategory');
 });
 

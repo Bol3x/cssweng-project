@@ -1,25 +1,25 @@
 <html>
-<head>
-	<title>Home</title>
-	<link rel="stylesheet" href="/css/style.css">
-</head>
+	<head>
+		<title>Home</title>
+		<link rel="stylesheet" href="/css/style.css">
+	</head>
 
-<body>
-	<h1>Hello, <%= name %> </h1>
-	<form action="/auth/logout" method="post">
-		<input type="submit" value="Logout">
-	</form>
+	<body>
+		<h1>Hello, <%= name %> </h1>
+		<form action="/auth/logout" method="post">
+			<input type="submit" value="Logout">
+		</form>
 
-	<form action="/user" method="get">
-		<input type="submit" value="Users">
-	</form>
+		<form action="/user" method="get">
+			<input type="submit" value="Users">
+		</form>
 
-	<form action="/category/add" method="get">
-		<input type="submit" value="Product Categories">
-	</form>
+		<form action="/category/add" method="get">
+			<input type="submit" value="Product Categories">
+		</form>
 
-	<form action="/product/add" method="get">
-		<input type="submit" value="Products">
-	</form>
-</body>
+		<form action="/product/add" method="get">
+			<input type="submit" value="Products">
+		</form>
+	</body>
 </html>

@@ -16,7 +16,7 @@ export default async (req: Request, res: Response, next: NextFunction) => {
 		data.email = data.email.toLowerCase();
 
 		const user = await userAdd(data);
-		res.status(200).json(user);
+		res.status(200).render("message", {message: "User Successfully created"});
 
 		
 	} catch (error : any) {

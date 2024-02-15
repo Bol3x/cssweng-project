@@ -30,9 +30,8 @@ export default (whitelist: Array<string>) => {
 			console.log('Validating phone num')
 			const isPhoneValid = validatePhone(phone_num);
 
-			console.log('Validating icon')
-			const isFileValid = await validateUpload(req.file?.path, whitelist);
-
+			console.log('Validating image')
+			const isFileValid = (req.file != undefined) ? await validateUpload(req.file?.path, whitelist) : true; //image is optional
 
 			console.log("Final check")
 			//edge case
@@ -40,6 +39,7 @@ export default (whitelist: Array<string>) => {
 
 			if (isNameValid && isPasswordValid && isEmailValid && isPhoneValid && isFileValid) 
 				next();
+
 		} catch(err){
 			if (req.file){
 				unlink(req.file.path, (err) =>{

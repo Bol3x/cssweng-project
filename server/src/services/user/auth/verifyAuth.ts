@@ -5,9 +5,9 @@ import { Request, Response } from "express";
 export const verifyAuth = async (req: Request, res: Response) => {
 	if(req.isAuthenticated()){
 		//@ts-ignore
-		res.status(200).json({message: "User is already logged in", userdata: req.user})
+		res.status(200).render("message", {message: "User is already logged in", userdata: req.user});
 	}
 	else{
-		res.status(403).send({message: 'You are not logged in'});
+		res.status(403).render("message", {message: 'You are not logged in'});
 	}
 } 

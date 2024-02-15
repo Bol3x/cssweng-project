@@ -16,7 +16,7 @@ export default async function userCheckAdmin(req: Request, res: Response, next: 
 			if (user.user_category.utype_title == "Admin")
 				return next();
 
-			res.status(401).send("You do not have access to this page.");
+			res.status(401).render("message", {message: "You do not have access to this page."});
 		})
 	}
 	catch(err){
