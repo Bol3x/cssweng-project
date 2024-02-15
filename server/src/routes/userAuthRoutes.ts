@@ -11,7 +11,7 @@ import userNoAuth from '../services/user/auth/userNoAuth.js';
 import { verifyAuth } from '../services/user/auth/verifyAuth.js';
 import verifyAdmin from '../services/user/auth/verifyAdmin.js';
 
-import loginRateLimiter from '../services/middlewares/rateLimiter.js'
+import { loginRateLimiter } from '../services/middlewares/rateLimiter.js';
 
 const UserAuthRouter = express.Router();
 

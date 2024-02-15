@@ -53,7 +53,10 @@ UserRouter.get('/', (req, res) => {
 });
 
 UserRouter.get('/get', userGet);
-UserRouter.post('/add', upload.single('img'), validateUserdata(whitelist_filetypes), userAddEmployee);
+UserRouter.post('/add', upload.single('img'), validateUserdata(whitelist_filetypes),/*, userAddEmployee */ (req,res) =>{
+	console.log("added user");
+	res.send("User has been added");
+});
 
 UserRouter.post('/check', verifyAdmin);
 UserRouter.delete('/:email', userRemove);

@@ -8,6 +8,7 @@ export default async function validateUpload(path: any, whitelist: Array<string>
 
 	//@ts-ignore
 	if (whitelist.indexOf(file_type?.mime) == -1){
+		console.log(file_type)
 		throw new Error("Filetype not allowed.")
 	}
 	
