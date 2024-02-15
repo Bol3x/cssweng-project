@@ -1,4 +1,4 @@
-import prisma from "../../../repositories/prismaClient";
+import prisma from "../../../repositories/prismaClient.js";
 
 export default async function usertypeGetUnique(type_id: number){
 	try{
