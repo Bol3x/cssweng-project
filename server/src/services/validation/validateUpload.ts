@@ -3,6 +3,14 @@
 
 import {fileTypeFromFile} from 'file-type';
 
-export default async function validateUpload(path: any, whitelist: any){
-	console.log(await fileTypeFromFile(path))
+export default async function validateUpload(path: any, whitelist: Array<string>){
+	const file_type = await fileTypeFromFile(path)
+
+	//@ts-ignore
+	if (whitelist.indexOf(file_type?.mime) == -1){
+		throw new Error("Filetype not allowed.")
+	}
+	
+	return true;
+
 }
