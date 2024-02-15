@@ -4,6 +4,7 @@
  */
 
 import { Request, Response, NextFunction } from "express";
+import { unlink } from 'fs';
 
 import DatabaseError from "../error/databaseError.js";
 
@@ -23,6 +24,10 @@ export default async (req: Request, res: Response, next: NextFunction) => {
 
 		
 	} catch (error : any) {
+		if (req.file)
+			unlink(req.file.path, (err)=>{
+				console.log("file has been deleted.")
+		});
 		console.log(error)
 		next(DatabaseError.DBError(error.code));
 	}

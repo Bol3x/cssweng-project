@@ -22,6 +22,8 @@ const whitelist_filetypes = [
 	'image/webp'
   ]
 
+const maxSize = 1 * 1024 * 1024; //1MB
+
 //multer config
 //probably change destination to a web storage in prod
 const upload = multer({
@@ -34,8 +36,13 @@ const upload = multer({
 		  cb(null, file.fieldname + '-' + uniqueSuffix)
 		}
 	  }),
+
+	limits: { fileSize: maxSize },
 	  
 	fileFilter: (req, file, cb) => {
+
+	console.log("File: ");
+	console.log(file);
 	if (!whitelist_filetypes.includes(file.mimetype)) {
 		return cb(new Error('file is not allowed'))
 	}
@@ -53,10 +60,7 @@ UserRouter.get('/', (req, res) => {
 });
 
 UserRouter.get('/get', userGet);
-UserRouter.post('/add', upload.single('img'), validateUserdata(whitelist_filetypes),/*, userAddEmployee */ (req,res) =>{
-	console.log("added user");
-	res.send("User has been added");
-});
+UserRouter.post('/add', upload.single('img'), validateUserdata(whitelist_filetypes), userAddEmployee);
 
 UserRouter.post('/check', verifyAdmin);
 UserRouter.delete('/:email', userRemove);

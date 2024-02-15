@@ -33,6 +33,8 @@ export default (whitelist: Array<string>) => {
 			console.log('Validating icon')
 			const isFileValid = await validateUpload(req.file?.path, whitelist);
 
+
+			console.log("Final check")
 			//edge case
 			if (email === password.toLowerCase()) throw new Error('The Email cannot be your password!!!');
 
