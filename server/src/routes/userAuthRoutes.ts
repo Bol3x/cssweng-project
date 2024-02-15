@@ -11,6 +11,7 @@ import userNoAuth from '../services/user/auth/userNoAuth.js';
 import { verifyAuth } from '../services/user/auth/verifyAuth.js';
 import verifyAdmin from '../services/user/auth/verifyAdmin.js';
 
+import loginRateLimiter from '../services/middlewares/rateLimiter.js'
 
 const UserAuthRouter = express.Router();
 
@@ -23,7 +24,7 @@ UserAuthRouter.post('/verifyAdmin', verifyAdmin);
 UserAuthRouter.get('/checkAuth', verifyAuth);
 
 // Login Handle
-UserAuthRouter.post('/login', userNoAuth, passport.authenticate('login'), (req, res) => {
+UserAuthRouter.post('/login', userNoAuth, loginRateLimiter, passport.authenticate('login'), (req, res) => {
 	console.log("Logged in user");
 	res.redirect("index");
 	//@ts-ignore
