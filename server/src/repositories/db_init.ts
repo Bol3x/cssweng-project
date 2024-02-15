@@ -1,7 +1,7 @@
 //initial data fill for first admin
 
-import userAdd from "../services/user/api/userAdd";
-import prisma from "./prismaClient";
+import userAdd from "../services/user/api/userAdd.js";
+import prisma from "./prismaClient.js";
 
 prisma.user_category.createMany({
 	data:[

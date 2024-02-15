@@ -4,8 +4,8 @@
  */
 
 //explicit Prisma dependency
-import prisma from "../../../repositories/prismaClient";
-import DatabaseError from "../../error/databaseError";
+import prisma from "../../../repositories/prismaClient.js";
+import DatabaseError from "../../error/databaseError.js";
 
 export default async () => {
 	try {

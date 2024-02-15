@@ -6,11 +6,11 @@
 import { Request, Response, NextFunction } from "express";
 import bcryptjs from "bcryptjs";
 
-import DatabaseError from "../error/databaseError";
+import DatabaseError from "../error/databaseError.js";
 
-import validatePassword from "../validation/validatePassword";
+import validatePassword from "../validation/validatePassword.js";
 
-import prisma from "../../repositories/prismaClient";
+import prisma from "../../repositories/prismaClient.js";
 
 
 export default async (req: Request, res: Response, next: NextFunction) => {

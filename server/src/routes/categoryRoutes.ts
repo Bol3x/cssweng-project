@@ -5,13 +5,13 @@
 import express, { Router } from 'express';
 
 //services - function request handlers for each route
-import categoryAdd from '../services/products/category/categoryAdd';
-import categoryGet from '../services/products/category/categoryGet';
-import categoryEdit from '../services/products/category/categoryEdit';
-import categoryDelete from '../services/products/category/categoryRemove';
+import categoryAdd from '../services/products/category/categoryAdd.js';
+import categoryGet from '../services/products/category/categoryGet.js';
+import categoryEdit from '../services/products/category/categoryEdit.js';
+import categoryDelete from '../services/products/category/categoryRemove.js';
 
 
-import userCheckAdmin from '../services/user/auth/userCheckAdmin';
+import userCheckAdmin from '../services/user/auth/userCheckAdmin.js';
 
 const CategoryRouter: Router = express.Router();
 

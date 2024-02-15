@@ -4,15 +4,15 @@
  */
 import { Router } from 'express';
 
-import ProductRouter from './productRoutes';
-import CategoryRouter from './categoryRoutes';
-import UserRouter from './userRoutes';
-import UserAuthRouter from './userAuthRoutes';
+import ProductRouter from './productRoutes.js';
+import CategoryRouter from './categoryRoutes.js';
+import UserRouter from './userRoutes.js';
+import UserAuthRouter from './userAuthRoutes.js';
 
-import ErrorHandler from '../services/error/errorResponse';
+import ErrorHandler from '../services/error/errorResponse.js';
 
-import userCheckAuth from '../services/user/auth/userCheckAuth';
-import userCheckAdmin from '../services/user/auth/userCheckAdmin';
+import userCheckAuth from '../services/user/auth/userCheckAuth.js';
+import userCheckAdmin from '../services/user/auth/userCheckAdmin.js';
 
 export const LoadRoutes = (app: Router) => {
 

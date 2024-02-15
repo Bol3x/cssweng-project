@@ -6,10 +6,10 @@
 import express from 'express';
 import passport from 'passport';
 
-import userCheckAuth from '../services/user/auth/userCheckAuth';
-import userNoAuth from '../services/user/auth/userNoAuth';
-import { verifyAuth } from '../services/user/auth/verifyAuth';
-import verifyAdmin from '../services/user/auth/verifyAdmin';
+import userCheckAuth from '../services/user/auth/userCheckAuth.js';
+import userNoAuth from '../services/user/auth/userNoAuth.js';
+import { verifyAuth } from '../services/user/auth/verifyAuth.js';
+import verifyAdmin from '../services/user/auth/verifyAdmin.js';
 
 
 const UserAuthRouter = express.Router();

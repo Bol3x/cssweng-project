@@ -3,11 +3,11 @@
 
 import { Request, Response, NextFunction } from 'express';
 
-import validatePassword from './validatePassword';
-import validateEmail from './validateEmail';
-import validateName from './validateName';
-import validatePhone from './validatePhone';
-import validateUpload from './validateUpload';
+import validatePassword from './validatePassword.js';
+import validateEmail from './validateEmail.js';
+import validateName from './validateName.js';
+import validatePhone from './validatePhone.js';
+import validateUpload from './validateUpload.js';
 
 export default (whitelist: any) => {
 	return async (req: Request, res: Response, next: NextFunction) => {
@@ -19,7 +19,7 @@ export default (whitelist: any) => {
 			const isEmailValid = await validateEmail(email);
 			const isPasswordValid = validatePassword(password);
 			const isPhoneValid = validatePhone(phone_num);
-			//const isFileValid = validateUpload(req.file?.path, whitelist);
+			const isFileValid = validateUpload(req.file?.path, whitelist);
 
 			//edge case
 			if (email === password.toLowerCase()) throw new Error('The Email cannot be your password!!!');

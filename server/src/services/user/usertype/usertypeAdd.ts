@@ -5,9 +5,9 @@
 
 import { Request, Response, NextFunction } from "express";
 
-import DatabaseError from "../../error/databaseError";
+import DatabaseError from "../../error/databaseError.js";
 
-import prisma from "../../../repositories/prismaClient";
+import prisma from "../../../repositories/prismaClient.js";
 
 export default async (req: Request, res: Response, next: NextFunction) => {
 	try {

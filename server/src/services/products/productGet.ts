@@ -6,8 +6,8 @@
 //explicit Prisma dependency
 import { Request, Response, NextFunction } from "express";
 
-import prisma from "../../repositories/prismaClient";
-import DatabaseError from "../error/databaseError";
+import prisma from "../../repositories/prismaClient.js";
+import DatabaseError from "../error/databaseError.js";
 
 export default async (req: Request, res: Response, next: NextFunction) => {
 	try {

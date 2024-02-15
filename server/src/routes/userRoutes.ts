@@ -6,13 +6,13 @@
 import express, { Express } from 'express';
 import multer from "multer";
 
-import userAddEmployee from '../services/user/userAddEmployee';
-import userGet from '../services/user/userGetEmployees';
-import userRemove from '../services/user/userRemove';
+import userAddEmployee from '../services/user/userAddEmployee.js';
+import userGet from '../services/user/userGetEmployees.js';
+import userRemove from '../services/user/userRemove.js';
 
-import UserTypeRouter from './usertypeRoutes';
-import validateUserdata from '../services/validation/validateUserdata';
-import verifyAdmin from '../services/user/auth/verifyAdmin';
+import UserTypeRouter from './usertypeRoutes.js';
+import validateUserdata from '../services/validation/validateUserdata.js';
+import verifyAdmin from '../services/user/auth/verifyAdmin.js';
 
 //
 const whitelist_filetypes = [

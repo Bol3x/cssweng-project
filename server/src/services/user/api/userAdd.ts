@@ -1,6 +1,6 @@
-import prisma from "../../../repositories/prismaClient";
+import prisma from "../../../repositories/prismaClient.js";
 import bcryptjs from "bcryptjs";
-import DatabaseError from "../../error/databaseError";
+import DatabaseError from "../../error/databaseError.js";
 
 export default async function userAdd(data: any){
 	try{

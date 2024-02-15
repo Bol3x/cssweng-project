@@ -3,9 +3,9 @@
  */
 
 import { Request, Response, NextFunction } from 'express';
-import usertypeGetUnique from '../api/usertypeGetUnique';
+import usertypeGetUnique from '../api/usertypeGetUnique.js';
 import { user, user_category } from '@prisma/client';
-import userGetUnique from '../api/userGetUnique';
+import userGetUnique from '../api/userGetUnique.js';
 
 export default async function userCheckAdmin(req: Request, res: Response, next: NextFunction){
 
