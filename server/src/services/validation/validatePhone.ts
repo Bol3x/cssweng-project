@@ -4,7 +4,7 @@
 export default function validatePhone(number: string){
 
 	/*
-		REGEX LEGEND:
+		PHONE REGEX GUIDE:
 
 		[1]		(?:\+?(\d{1,3}))?		country code		optional
 		[2]		(\d{3})?            	area code			optional
@@ -15,12 +15,12 @@ export default function validatePhone(number: string){
 		Groups can be divided with either spaces or dashes
 	*/
 
-	const phoneRe = /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})?[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/gm;
-
+	const phoneRe = new RegExp(/^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})?[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/);
+	
 	try{
 
-		if (!number.search(phoneRe))
-			return true;
+		if (!(number.search(phoneRe)) == false) throw new Error("Invalid phone number. Please enter a valid phone number.");
+		return true
 	}
 	catch(err){
 		throw err;

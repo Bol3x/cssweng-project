@@ -4,7 +4,8 @@
 	//1. must be between 6 and 16 characters
 	//2. must contain at least 1 uppercase letter
 	//3. must contain at least 1 number
-	//4. cannot contain spaces
+    //4. must contain at least 1 symbol
+	//5. cannot contain spaces
 
 export default function validatePassword(password: string){
     const errors = [];
@@ -17,8 +18,14 @@ export default function validatePassword(password: string){
 	if (password.search(/[a-z]/) < 0) {
 		errors.push("The password must contain at least one small letter");
     }
+    if (password.search(/[\W]/) < 0) {
+		errors.push("The password must contain at least one symbol");
+    }
     if (password.search(/[0-9]/) < 0) {
         errors.push("The password must contain at least one digit"); 
+    }
+    if (password.search(/[\s]/) > -1) {
+		errors.push("The password cannot contain spaces.");
     }
     if (errors.length > 0) {
         throw new Error(errors.join(", "));
