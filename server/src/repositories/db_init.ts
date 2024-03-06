@@ -17,3 +17,10 @@ prisma.user_category.createMany({
 		phone_num: "001234567890",
 	});
 });
+
+prisma.transaction_category.createMany({
+	data: [
+			{trtype_name: "Sales"},
+			{trtype_name: "Restocks"}
+	]
+});

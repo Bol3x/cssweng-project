@@ -47,6 +47,26 @@ model user {
   @@index([type], map: "fk_utype_idx")
 }
 
+model transaction {
+	tr_id		Int			  @id @default(autoincrement())
+	tr_type		Int
+	product_id	Int
+	sender		Int
+	Date		DateTime	  @db.DateTime(0)
+	Amount		Int
+	Details		String?
+	transaction_category transaction_category @relation(fields: [tr_type], references: [trtype_PID], onDelete: Cascade, onUpdate: NoAction, map: "fk_trtype")
+
+	@@index ([tr_type], map: "fk_trtype_idx")
+}
+
+model transaction_category {
+	trtype_PID	Int		@id @default(autoincrement())
+	trtype_name	String	@unique(map: "trtype_name_UNIQUE") @db.VarChar(255)
+
+	transaction transaction[]
+}
+
 model user_category {
   utype_ID    Int    @id @default(autoincrement())
   utype_title String @unique(map: "utype_title_UNIQUE") @db.VarChar(255)
