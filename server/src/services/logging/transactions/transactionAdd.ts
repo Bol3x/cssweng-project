@@ -5,10 +5,10 @@
 
 import { Request, Response, NextFunction } from "express";
 
-import DatabaseError from "../error/databaseError.js";
+import DatabaseError from "../../error/databaseError.js";
 
-import prisma from "../../repositories/prismaClient.js";
-import userGetUnique from "../user/api/userGetUnique.js";
+import prisma from "../../../repositories/prismaClient.js";
+import userGetUnique from "../../user/api/userGetUnique.js";
 
 export default async (product_id: number, stock: number, user_id : number, type: number) => {
 	try {

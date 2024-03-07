@@ -9,7 +9,7 @@ import DatabaseError from "../error/databaseError.js";
 
 import prisma from "../../repositories/prismaClient.js";
 import userGetUnique from "../user/api/userGetUnique.js";
-import transactionAdd from "../logging/transactionAdd.js";
+import transactionAdd from "../logging/transactions/transactionAdd.js";
 
 export default async (req: Request, res: Response, next: NextFunction) => {
 	try {
