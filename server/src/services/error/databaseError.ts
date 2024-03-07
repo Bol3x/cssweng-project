@@ -19,7 +19,9 @@ export default class DatabaseError {
 			case "P2025":
 				return new DatabaseError(400, "Could not find entry");
 			case "P2003":
-				return new DatabaseError(400, "Foreign key constraint failed");		
+				return new DatabaseError(400, "Foreign key constraint failed");
+			case "P0"	:
+				return new DatabaseError(400, "Input is not valid")		
 			default:
 				return new DatabaseError(500, "Internal Server Error");
 		}

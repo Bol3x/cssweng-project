@@ -40,6 +40,7 @@ prisma.transaction_category.createMany({
 	data: [
 			{trtype_name: "Sales"},
 			{trtype_name: "Restocks"},
-			{trtype_name: "New"}
+			{trtype_name: "New"},
+			{trtype_name: "Update"},
 	],
 }).then(() => {});

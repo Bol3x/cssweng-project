@@ -7,8 +7,11 @@ import express, { Router } from 'express';
 //services - function request handlers for each route
 import productAdd from '../services/products/productAdd.js';
 import productGet from '../services/products/productGet.js';
-import productEdit from '../services/products/productEdit.js';
 import productDelete from '../services/products/productRemove.js';
+
+import productEdit from '../services/products/productEdit.js';
+import productRestock from '../services/products/productRestock.js';
+import productSale from '../services/products/productSale.js';
 
 import userCheckAdmin from '../services/user/auth/userCheckAdmin.js';
 import categoryGet from '../services/products/category/categoryGet.js';
@@ -24,6 +27,8 @@ ProductRouter.get('/add', (req, res) => {
 ProductRouter.post('/add', userCheckAdmin, productAdd);
 ProductRouter.get('/get', productGet);
 ProductRouter.put('/:id', productEdit);
+ProductRouter.put('/restock/:id', productRestock);
+ProductRouter.put('/sale/:id', productSale);
 ProductRouter.delete('/remove', userCheckAdmin, productDelete);
 
 export default ProductRouter;

@@ -9,6 +9,8 @@ import DatabaseError from "../error/databaseError.js";
 
 import prisma from "../../repositories/prismaClient.js";
 
+import transactionAdd from "../logging/transactions/transactionAdd.js";
+
 export default async (req: Request, res: Response, next: NextFunction) => {
 	try {
 		//get the product id from the request parameters
@@ -36,7 +38,13 @@ export default async (req: Request, res: Response, next: NextFunction) => {
 				last_updated: new Date(),
 			},
 		});
-		res.json(product);
+
+		//@ts-ignore
+		const user = await userGetUnique(req.user.email)
+
+		const transaction = await transactionAdd(product.product_ID, Number(stock), user!.user_ID, 4);
+
+		res.status(200).json(product);
 
 	//catch any errors and send to next middleware error handler
 	} catch (error: any) {
