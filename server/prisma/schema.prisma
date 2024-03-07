@@ -48,9 +48,9 @@ model user {
 }
 
 model transaction {
-	tr_id		Int			  @id @default(autoincrement())
+	tr_ID		Int			  @id @default(autoincrement())
 	tr_type		Int
-	product_id	Int
+	product_ID	Int
 	sender		Int
 	Date		DateTime	  @db.DateTime(0)
 	Amount		Int

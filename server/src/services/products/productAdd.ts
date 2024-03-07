@@ -8,6 +8,8 @@ import { Request, Response, NextFunction } from "express";
 import DatabaseError from "../error/databaseError.js";
 
 import prisma from "../../repositories/prismaClient.js";
+import userGetUnique from "../user/api/userGetUnique.js";
+import transactionAdd from "../logging/transactionAdd.js";
 
 export default async (req: Request, res: Response, next: NextFunction) => {
 	try {
@@ -26,9 +28,14 @@ export default async (req: Request, res: Response, next: NextFunction) => {
 				},
 				avg_value: Number(price) * Number(stock),
 				last_updated: new Date(),
-
 			},
 		});
+
+		//@ts-ignore
+		const user = await userGetUnique(req.user.email)
+
+		const transaction = await transactionAdd(product.product_ID, Number(stock), user!.user_ID, 3);
+
 		res.json(product);
 	} catch (error : any) {
 		console.log(error)
