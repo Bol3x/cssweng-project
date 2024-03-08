@@ -9,6 +9,7 @@ import DatabaseError from "../error/databaseError.js";
 
 import prisma from "../../repositories/prismaClient.js";
 import userGetUnique from "../user/api/userGetUnique.js";
+import logAdd from "../logging/logAdd.js";
 import transactionAdd from "../logging/transactions/transactionAdd.js";
 
 export default async (req: Request, res: Response, next: NextFunction) => {
@@ -33,6 +34,10 @@ export default async (req: Request, res: Response, next: NextFunction) => {
 
 		//@ts-ignore
 		const user = await userGetUnique(req.user.email)
+
+		const log = await logAdd(user!.user_ID, 3);
+
+		const transaction
 
 		const transaction = await transactionAdd(product.product_ID, Number(stock), user!.user_ID, 3);
 

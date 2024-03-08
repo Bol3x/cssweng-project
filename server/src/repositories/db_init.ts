@@ -36,11 +36,19 @@ userAdd({
 	phone_num: "001234567890",
 }).then(() => {});
 
-prisma.transaction_category.createMany({
+prisma.log_category.createMany({
 	data: [
-			{trtype_name: "Sales"},
-			{trtype_name: "Restocks"},
-			{trtype_name: "New"},
-			{trtype_name: "Update"},
+			{trtype_name: "Sale"},
+			{trtype_name: "Restock"},
+			
+			{trtype_name: "Create Product"},
+			{trtype_name: "Read Product"},
+			{trtype_name: "Update Product"},
+			{trtype_name: "Delete Product"},
+
+			{trtype_name: "Create User"},
+			{trtype_name: "Read User"},
+			{trtype_name: "Update User"},
+			{trtype_name: "Delete User"},
 	],
 }).then(() => {});

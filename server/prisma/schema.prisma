@@ -23,6 +23,8 @@ model product {
   order_amt        Int               @default(0) @db.UnsignedInt
   product_category product_category? @relation(fields: [type], references: [category_ID], onUpdate: NoAction, map: "fk_ptype")
 
+  transaction 	transaction[]
+
   @@unique([name, brand], map: "name_brand_UNIQUE")
   @@index([type], map: "fk_ptype_idx")
 }
@@ -40,31 +42,59 @@ model user {
   email         String        @unique(map: "email_UNIQUE") @db.VarChar(255)
   name          String        @db.VarChar(255)
   phone_num     String        @db.VarChar(15)
-  profile_pic   String?
+  profile_pic   String?		  @db.VarChar(255)
   date_created  DateTime      @db.DateTime(0)
   user_category user_category @relation(fields: [type], references: [utype_ID], onDelete: Cascade, onUpdate: NoAction, map: "fk_utype")
+
+  admin_log			log[]
+  admin_user_log 	admin_user_log[]
 
   @@index([type], map: "fk_utype_idx")
 }
 
 model transaction {
-	tr_ID		Int			  @id @default(autoincrement())
-	tr_type		Int
-	product_ID	Int
-	sender		Int
-	Date		DateTime	  @db.DateTime(0)
-	Amount		Int
-	Details		String?
-	transaction_category transaction_category @relation(fields: [tr_type], references: [trtype_PID], onDelete: Cascade, onUpdate: NoAction, map: "fk_trtype")
+	log_ID			Int			  @id
+	product_ID		Int
+	Amount			Int
 
-	@@index ([tr_type], map: "fk_trtype_idx")
+	log				log		@relation(fields: [log_ID], references: [log_ID], onDelete: NoAction, onUpdate: NoAction, map: "fk_lid")
+	product			product	@relation(fields: [product_ID], references: [product_ID], onDelete: NoAction, onUpdate: NoAction, map: "fk_pid")
+
+	@@index ([log_ID], map: "fk_lid_idx")
+	@@index ([product_ID], map: "fk_pid_idx")
 }
 
-model transaction_category {
+model log {
+	log_ID		Int 		@id @default(autoincrement())
+	source_ID	Int
+	log_type	Int
+	Date		DateTime	@db.DateTime(0)
+	Details		String? 	@db.VarChar(255)
+
+	user		user	@relation(fields: [source_ID], references: [user_ID], onDelete: NoAction, onUpdate: NoAction, map: "fk_log_uid")
+	log_category log_category @relation(fields: [log_type], references: [trtype_PID], onDelete: NoAction, onUpdate: NoAction, map: "fk_log_type")
+
+	transaction transaction[]
+
+	@@index ([source_ID], map: "fk_alog_uid")
+	@@index ([log_type], map: "fl_log_type")
+}
+
+model admin_user_log {
+	log_ID		Int			@id
+	target_ID	Int
+
+
+	user		user	@relation(fields: [target_ID], references: [user_ID], onDelete: NoAction, onUpdate: NoAction, map: "fk_aulog_uid")
+
+	@@index ([target_ID], map: "fk_alog_uid")
+}
+
+model log_category {
 	trtype_PID	Int		@id @default(autoincrement())
 	trtype_name	String	@unique(map: "trtype_name_UNIQUE") @db.VarChar(255)
 
-	transaction transaction[]
+	log log[]
 }
 
 model user_category {
