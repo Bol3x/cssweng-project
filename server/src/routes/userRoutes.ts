@@ -10,7 +10,6 @@ import userAddEmployee from '../services/user/userAddEmployee.js';
 import userGet from '../services/user/userGetEmployees.js';
 import userRemove from '../services/user/userRemove.js';
 
-import UserTypeRouter from './usertypeRoutes.js';
 import validateUserdata from '../services/validation/validateUserdata.js';
 import verifyAdmin from '../services/user/auth/verifyAdmin.js';
 
@@ -52,8 +51,6 @@ const upload = multer({
 })
 
 const UserRouter = express.Router();
-
-UserRouter.use('/type', UserTypeRouter);
 
 UserRouter.get('/', (req, res) => {
 	res.render('adduser');

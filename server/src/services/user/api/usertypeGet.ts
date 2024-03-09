@@ -1,6 +1,6 @@
 import prisma from "../../../repositories/prismaClient.js";
 
-export default async function usertypeGetUnique(type_id: number){
+export default async function usertypeGet(type_id: number){
 	try{
 		const usertype = await prisma.user_category.findUnique({
 			where: {

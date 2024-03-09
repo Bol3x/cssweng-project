@@ -41,17 +41,17 @@ userAdd({
 
 prisma.log_category.createMany({
 	data: [
-			{trtype_name: "Sale"},
-			{trtype_name: "Restock"},
+			{trtype_name: "Sale"},			//1
+			{trtype_name: "Restock"},		//2
 			
-			{trtype_name: "Create Product"},
-			{trtype_name: "Read Product"},
-			{trtype_name: "Update Product"},
-			{trtype_name: "Delete Product"},
+			{trtype_name: "Create Product"},//3
+			{trtype_name: "Read Product"},	//4
+			{trtype_name: "Update Product"},//5
+			{trtype_name: "Delete Product"},//6
 
-			{trtype_name: "Create User"},
-			{trtype_name: "Read User"},
-			{trtype_name: "Update User"},
-			{trtype_name: "Delete User"},
+			{trtype_name: "Create User"},	//7
+			{trtype_name: "Read User"},		//8
+			{trtype_name: "Update User"},	//9
+			{trtype_name: "Delete User"},	//10
 	],
 }).then(() => {});
