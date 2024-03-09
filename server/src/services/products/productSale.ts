@@ -10,6 +10,7 @@ import DatabaseError from "../error/databaseError.js";
 import prisma from "../../repositories/prismaClient.js";
 import transactionAdd from "../logging/transactions/transactionAdd.js";
 import userGetUnique from "../user/api/userGetUnique.js";
+import logAdd from "../logging/logAdd.js";
 
 export default async (req: Request, res: Response, next: NextFunction) => {
 	try {
@@ -47,9 +48,11 @@ export default async (req: Request, res: Response, next: NextFunction) => {
 		});
 
 		//@ts-ignore
-		const user = await userGetUnique(req.user.email);
+		const user = await userGetUnique(req.user.email)
 
-		const transaction = await transactionAdd(product.product_ID, product.stock, user!.user_ID, 1);
+		const log = await logAdd(user!.user_ID, 1);
+
+		const transaction = await transactionAdd(product.product_ID, Number(stock), log.log_ID);
 
 		res.status(200).json(product);
 	//catch any errors and send to next middleware error handler

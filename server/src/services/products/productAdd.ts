@@ -37,11 +37,9 @@ export default async (req: Request, res: Response, next: NextFunction) => {
 
 		const log = await logAdd(user!.user_ID, 3);
 
-		const transaction
+		const transaction = await transactionAdd(product.product_ID, Number(stock), log.log_ID);
 
-		const transaction = await transactionAdd(product.product_ID, Number(stock), user!.user_ID, 3);
-
-		res.json(product);
+		res.status(200).json(product);
 	} catch (error : any) {
 		console.log(error)
 		next(DatabaseError.DBError(error.code));

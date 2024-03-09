@@ -10,6 +10,7 @@ import DatabaseError from "../error/databaseError.js";
 import prisma from "../../repositories/prismaClient.js";
 
 import transactionAdd from "../logging/transactions/transactionAdd.js";
+import logAdd from "../logging/logAdd.js";
 
 export default async (req: Request, res: Response, next: NextFunction) => {
 	try {
@@ -42,7 +43,9 @@ export default async (req: Request, res: Response, next: NextFunction) => {
 		//@ts-ignore
 		const user = await userGetUnique(req.user.email)
 
-		const transaction = await transactionAdd(product.product_ID, Number(stock), user!.user_ID, 4);
+		const log = await logAdd(user!.user_ID, 5);
+
+		const transaction = await transactionAdd(product.product_ID, Number(stock), log.log_ID);
 
 		res.status(200).json(product);
 

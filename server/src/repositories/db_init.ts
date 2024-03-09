@@ -16,8 +16,11 @@ prisma.$executeRaw`ALTER TABLE user_category AUTO_INCREMENT = 1;`.then(() => {})
 prisma.$executeRaw`TRUNCATE TABLE transaction;`.then(() => {});
 prisma.$executeRaw`ALTER TABLE transaction AUTO_INCREMENT = 1;`.then(() => {});
 
-prisma.$executeRaw`TRUNCATE TABLE transaction_category;`.then(() => {});
-prisma.$executeRaw`ALTER TABLE transaction_category AUTO_INCREMENT = 1;`.then(() => {});
+prisma.$executeRaw`TRUNCATE TABLE log;`.then(() => {});
+prisma.$executeRaw`ALTER TABLE log AUTO_INCREMENT = 1;`.then(() => {});
+
+prisma.$executeRaw`TRUNCATE TABLE log_category;`.then(() => {});
+prisma.$executeRaw`ALTER TABLE log_category AUTO_INCREMENT = 1;`.then(() => {});
 
 console.log("generating table data...")
 

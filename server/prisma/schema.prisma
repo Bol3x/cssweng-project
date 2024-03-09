@@ -32,6 +32,7 @@ model product {
 model product_category {
   category_ID Int       @id @unique(map: "category_id_UNIQUE") @default(autoincrement())
   name        String    @unique(map: "name_UNIQUE") @db.VarChar(255)
+  
   products    product[]
 }
 
@@ -46,7 +47,7 @@ model user {
   date_created  DateTime      @db.DateTime(0)
   user_category user_category @relation(fields: [type], references: [utype_ID], onDelete: Cascade, onUpdate: NoAction, map: "fk_utype")
 
-  admin_log			log[]
+  log				log[]
   admin_user_log 	admin_user_log[]
 
   @@index([type], map: "fk_utype_idx")
@@ -75,19 +76,21 @@ model log {
 	log_category log_category @relation(fields: [log_type], references: [trtype_PID], onDelete: NoAction, onUpdate: NoAction, map: "fk_log_type")
 
 	transaction transaction[]
+	admin_user_log admin_user_log[]
 
-	@@index ([source_ID], map: "fk_alog_uid")
-	@@index ([log_type], map: "fl_log_type")
+	@@index ([source_ID], map: "fk_alog_uid_idx")
+	@@index ([log_type], map: "fl_log_type_idx")
 }
 
 model admin_user_log {
 	log_ID		Int			@id
 	target_ID	Int
 
+	log			log		@relation(fields: [log_ID], references: [log_ID], onDelete: Cascade, onUpdate: NoAction, map: "fk_log_id")
+	user		user	@relation(fields: [target_ID], references: [user_ID], onDelete: NoAction, onUpdate: NoAction, map: "fk_tgt_uid")
 
-	user		user	@relation(fields: [target_ID], references: [user_ID], onDelete: NoAction, onUpdate: NoAction, map: "fk_aulog_uid")
-
-	@@index ([target_ID], map: "fk_alog_uid")
+	@@index ([log_ID], map: "fk_log_id_idx")
+	@@index ([target_ID], map: "fk_tgt_uid_idx")
 }
 
 model log_category {
