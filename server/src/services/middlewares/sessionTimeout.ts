@@ -4,10 +4,39 @@
  */
 
 
-import { Request, Response, NextFunction } from 'express';
-import { useEffect } from 'react';
+// import { Request, Response, NextFunction } from 'express';
+// import { useEffect } from 'react';
 
-export default function sessionTimer(req: Request, res: Response, next: NextFunction) {
+import { IdleSessionTimeout } from "idle-session-timeout";
+
+// creates a session that times out in --> 5 MINUTES <-- of inactivity
+export let sessionTimer = new IdleSessionTimeout(5 * 60 * 1000)
+let timeLeft = sessionTimer.getTimeLeft()
+
+sessionTimer.onTimeOut = () => {
+
+
+}
+
+// notify each second about the time left before the timeout
+sessionTimer.onTimeLeftChange = (timeLeft) => {
+    console.log(`${timeLeft} ms left`);
+}
+
+function startSessTimer(sess: IdleSessionTimeout){
+    sess.start;
+}
+
+function disposeSessTimer(sess: IdleSessionTimeout){
+    sess.dispose;
+}
+
+function resetSessTimer(sess: IdleSessionTimeout){
+    sess.dispose;
+}
+
+
+/* export default function sessionTimer(req: Request, res: Response, next: NextFunction) {
 
     // function check for inactivity and log out if detected
     const checkForInactivity = () => {
@@ -71,4 +100,4 @@ export default function sessionTimer(req: Request, res: Response, next: NextFunc
     }, []);
 
     
-}
+} */
