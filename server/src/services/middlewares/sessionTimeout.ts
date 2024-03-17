@@ -37,7 +37,7 @@ export default function sessionTimer(req: Request, res: Response, next: NextFunc
     }
 
     // 
-    useEffect{() => {
+    useEffect(() => {
         // check for inactivity every -> 5 SECONDS <-
         const interval = setInterval(() => {
             checkForInactivity();
@@ -46,10 +46,10 @@ export default function sessionTimer(req: Request, res: Response, next: NextFunc
         //clear interval on unmount
         return () => clearInterval(interval);
 
-    }, []};
+    }, []);
 
     // detecting user activity and refresh the expiry time if meron
-    useEffect{() => {
+    useEffect(() => {
 
         // set initial expiry time
         updateExpireTime();
@@ -68,7 +68,7 @@ export default function sessionTimer(req: Request, res: Response, next: NextFunc
             window.removeEventListener("mousemove", updateExpireTime);
         }
 
-    }, []};
+    }, []);
 
     
 }
