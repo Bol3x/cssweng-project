@@ -12,6 +12,7 @@ import { verifyAuth } from '../services/user/auth/verifyAuth.js';
 import verifyAdmin from '../services/user/auth/verifyAdmin.js';
 
 import { loginRateLimiter } from '../services/middlewares/rateLimiter.js';
+import { sessionTimer } from '../services/middlewares/sessionTimeout.js'
 
 const UserAuthRouter = express.Router();
 
@@ -25,6 +26,7 @@ UserAuthRouter.get('/checkAuth', verifyAuth);
 
 // Login Handle
 UserAuthRouter.post('/login', userNoAuth, loginRateLimiter, passport.authenticate('login'), (req, res) => {
+	sessionTimer.start();
 	console.log("Logged in user");
 	res.redirect("index");
 	//@ts-ignore
@@ -41,5 +43,16 @@ UserAuthRouter.post('/logout', userCheckAuth, (req, res, next) => {
 		console.log("Logged out user");
 	});
 });
+
+sessionTimer.onTimeOut = () => {
+	UserAuthRouter.post('/logout', userCheckAuth, (req, res, next) => {
+		req.logOut((err) => {
+			if (err) return next(err);
+			res.redirect("/")
+			//res.status(200).json({message: "Successfully Logged out."});
+			console.log("Session expired. Logged out user");
+		});
+	});
+}
 
 export default UserAuthRouter;
