@@ -1,34 +1,54 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap'); 
 
+/* CSS for the website as a whole */
+
 body{
     background-color: #FAF8F1;
     font-family: 'Inter', sans-serif;
 }
 
-.sidecontent{ /*hello admin + category*/
-    position:relative;
-    top:10vh;
-    font-style:normal;
-    font-weight:100;
-    font-size: 33px;
-    line-height:40px;
-    left: 15px;
-  }
+input{
+  font-family: 'Inter', sans-serif;
+  height: 40px;
+  margin-left: 20px;
+  font-size: 15px;
+  border:none;
+  padding: 15px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius:30px;
+}
 
-  .button{
-    /* default button styling */
-    font-family: 'Inter', sans-serif;
-    background:#DD9D34;
-    border-radius:30px;
-    font-size:30px;
-    color:#FAF8F1;
-    padding:10px;
-    cursor:pointer;
-    border:none;
-    height: 55px;
-    /* positioning styling */
-    width:200px;
-    margin-top:30px;
-    box-shadow:none;
+.container{
+  background:#FAF8F1;
+  text-align:center;
+  justify-content:center;
+  margin-top:20vh;
+}
+
+table{
+  padding: 5px;
+  margin: auto;
+}
+
+td{
+  font-family: 'Inter', sans-serif;
+  padding:5px;
+}
+
+.enter{
+  /* default button styling */
+  font-family: 'Inter', sans-serif;
+  background:#DD9D34;
+  border-radius:30px;
+  font-size:30px;
+  color:#FAF8F1;
+  padding:10px;
+  cursor:pointer;
+  border:none;
+  height: 55px;
+  /* positioning styling */
+  width:200px;
+  margin-top:30px;
+  box-shadow:none;
 }

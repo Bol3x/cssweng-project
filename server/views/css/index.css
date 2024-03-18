@@ -1,0 +1,16 @@
+input{
+    /* default button styling */
+    font-family: 'Inter', sans-serif;
+    background:#DD9D34;
+    border-radius:30px;
+    font-size:30px;
+    color:#FAF8F1;
+    padding:10px;
+    cursor:pointer;
+    border:none;
+    height: 55px;
+    /* positioning styling */
+    width:200px;
+    margin-top:30px;
+    box-shadow:none;
+}
