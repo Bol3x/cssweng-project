@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap'); 
+
+body{
+    background-color: #FAF8F1;
+    font-family: 'Inter', sans-serif;
+}
+
+.sidecontent{ /*hello admin + category*/
+    position:relative;
+    top:10vh;
+    font-style:normal;
+    font-weight:100;
+    font-size: 33px;
+    line-height:40px;
+    left: 15px;
+  }
+
+  .button{
+    /* default button styling */
+    font-family: 'Inter', sans-serif;
+    background:#DD9D34;
+    border-radius:30px;
+    font-size:30px;
+    color:#FAF8F1;
+    padding:10px;
+    cursor:pointer;
+    border:none;
+    height: 55px;
+    /* positioning styling */
+    width:200px;
+    margin-top:30px;
+    box-shadow:none;
+}

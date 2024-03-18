@@ -1,3 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap'); 
+/* fonts used in this webapp */
+
 body{
-    background-color:black;
+    background:#FAF8F1;
+}
+
+img{
+    width: 150;
+    height: 150;
+}
+
+h1{
+    margin: 25px;
+}
+
+.container{
+    background:#FAF8F1;
+    text-align:center;
+    justify-content:center;
+    margin-top:20vh;
+}
+
+#text{
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 70px;
+    line-height: 85px;
+}
+
+table{
+    padding: 5px;
+    margin: auto;
+}
+
+td{
+    font-family: 'Inter', sans-serif;
+    padding:5px;
+}
+
+input{
+    font-family: 'Inter', sans-serif;
+    height: 40px;
+    margin-left: 20px;
+    font-size: 15px;
+    border:none;
+    padding: 15px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius:30px;
+}
+
+.enter{
+    /* default button styling */
+    font-family: 'Inter', sans-serif;
+    background:#DD9D34;
+    border-radius:30px;
+    font-size:30px;
+    color:#FAF8F1;
+    padding:10px;
+    cursor:pointer;
+    border:none;
+    height: 55px;
+    /* positioning styling */
+    width:200px;
+    margin-top:30px;
+    box-shadow:none;
 }
