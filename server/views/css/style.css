@@ -8,6 +8,11 @@ body{
     font-family: 'Inter', sans-serif;
 }
 
+img{
+  width: 150;
+  height: 150;
+}
+
 input{
   font-family: 'Inter', sans-serif;
   height: 40px;
