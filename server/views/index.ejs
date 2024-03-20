@@ -6,12 +6,12 @@
 	</head>
 
 	<body>
+		<%- include("./partials/sidebar.ejs") %>
 		<div class="container">
-			<h1 id="text">Hello, <%= name %>!</h1>
+			<h1>Hello, <%= name %>!</h1>
 			<form action="/auth/logout" method="post">
 				<input type="submit" value="Logout">
 			</form>
-
 			<form action="/user" method="get">
 				<input type="submit" value="Users">
 			</form>
@@ -24,6 +24,5 @@
 				<input type="submit" value="Products">
 			</form>
 		</div>
-		
 	</body>
 </html>

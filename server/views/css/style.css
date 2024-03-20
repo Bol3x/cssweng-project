@@ -4,8 +4,8 @@
 /* CSS for the website as a whole */
 
 body{
-    background-color: #FAF8F1;
-    font-family: 'Inter', sans-serif;
+  background-color: #FAF8F1;
+  font-family: 'Inter', sans-serif;
 }
 
 img{
@@ -29,6 +29,7 @@ input{
   text-align:center;
   justify-content:center;
   margin-top:20vh;
+  margin-left: 200px;
 }
 
 table{
@@ -56,4 +57,39 @@ td{
   width:200px;
   margin-top:30px;
   box-shadow:none;
+}
+
+/* SIDEBAR CSS */
+
+.sidebar{
+  padding: 15px 15px 0 15px;
+  background-color: #A67438;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 200px;
+  text-align: center;
+  position: fixed;
+  /* box-shadow: 0 0 30px #560BAD;
+  color: white; */
+  z-index: 1;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 60px;
+}
+
+li{
+  list-style-type: none;
+}
+  
+li form {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
 }
