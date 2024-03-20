@@ -9,16 +9,16 @@ body{
 }
 
 img{
-  width: 150;
-  height: 150;
+  width: 150px;
+  height: 150px;
 }
 
 input{
   font-family: 'Inter', sans-serif;
-  height: 40px;
+  height: 15px;
   margin-left: 20px;
   font-size: 15px;
-  border:none;
+  border: none;
   padding: 15px;
   box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
   border-radius:30px;
@@ -43,6 +43,18 @@ table{
 td{
   font-family: 'Inter', sans-serif;
   padding:5px;
+  text-align: left;
+}
+
+select{
+  margin-left: 21px;
+  height: 45px;
+  width: 229px;
+  border-radius:30px;
+  border: none;
+  padding: 15px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  color:#B8ABA9;
 }
 
 /* BUTTONS */
@@ -68,10 +80,10 @@ td{
 .submit{
   background:#DD9D34;
   color:#FAF8F1;
-  font-size:30px;
+  font-size: 30px;
   height: 55px;
-  width:200px;
-  margin-top:20px;
+  width: 200px;
+  margin-top: 20px;
 }
 
 .add{
@@ -82,6 +94,14 @@ td{
 .logout{
   background:#F13F26;
   color:#FAF8F1;
+}
+
+.back{
+  background:#B8ABA9;
+  font-size: 20px;
+  height: 40px;
+  width: 100px;
+  margin-top: 10px;
 }
 
 /* SIDEBAR CSS */
@@ -96,8 +116,7 @@ td{
   width: 200px;
   text-align: center;
   position: fixed;
-  /* box-shadow: 0 0 30px #560BAD;
-  color: white; */
+  color: #FAF8F1;
   z-index: 1;
 }
 
@@ -115,6 +134,15 @@ td{
   text-decoration: none;
 }
 
+.sidebar h1{
+  padding-top: 0px;
+  margin-top: 5px;
+}
+
+.sidebar h2{
+  font-weight: 200;
+}
+
 /* NAVBAR CSS */
 
 .navbar {
@@ -125,8 +153,9 @@ td{
   left: 0;
   right: 0;
   width: 100%;
-  height: 60;
+  height: 50px;
   z-index: 1;
+  padding: 0;
 }
 
 .navbar ul {
@@ -142,6 +171,36 @@ td{
 
 .navbar ul li form{
   display: block;
+  margin: 0;
+  padding: 0;
   text-align: center;
   padding: 14px 16px;
+}
+
+.navbar ul li form input{
+  color:#FAF8F1;
+  background-color: #A67438;
+  margin: 0;
+  margin-top: -14px;
+  margin-right: -20px;
+  margin-left: -12px;
+  padding: 0;
+  border-radius:0px;
+  height: 50px;
+}
+
+.users{
+  width: 100px;
+}
+
+.products{
+  width: 125px;
+}
+
+.categories{
+  width: 150px;
+}
+
+.navbar ul li form input:hover{
+  background-color: #DD9D34;
 }

@@ -11,15 +11,11 @@ input{
     border:none;
     height: 55px;
     /* positioning styling */
-    width:300px;
+    width:250px;
     margin-top:30px;
     box-shadow:none;
 }
 
 h1{
     font-size:50px;
-}
-
-#logout{
-    background:#F13F26;
 }
