@@ -6,62 +6,65 @@
 		<link rel="stylesheet" href="/css/style.css">
 		<link rel="stylesheet" href="/css/addproduct.css">
 	</head>
-	<body class="container">
-		<h1>Add Product</h1>
-		<form action="/product/add" method="POST">
-			<table>
-				<tr>
-					<td><label for="name">Product</label></td>
-					<td>
-						<input type="text" name="name" id="name">
-					</td>
-				</tr>
-				<tr>
-					<td><label for="brand">Brand</label></td>
-					<td>
-						<input type="text" name="brand" id="brand">
-					</td>
-				</tr>
-				<tr>
-					<td><label for="description">Description</label></td>
-					<td>
-						<input type="text" name="description" id="description">
-					</td>
-				</tr>
-				<tr>
-					<td><label for="stock">On-hand stock</label></td>
-					<td>
-						<input type="number" name="stock" id="stock">
-					</td>
-				</tr>
-				<tr>
-					<td><label for="sell_price">sell price</label></td>
-					<td>
-						<input type="number" name="price" id="price">
-					</td>
-				</tr>
-				<tr>
-					<td><label for ="category">Category</label></td>
-					<td>
-						<select name="category" id="category">
-							<%
-								for (var i = 0; i < categories.length; i++){
-									%>
-									<option value="<%=categories[i].category_ID%>">
-										<%=categories[i].name%>
-									</option>
-									<%
-								}
-							%>
-						</select>
-					</td>
-				</tr>
-			</table>	
-			<input type="submit" value="Submit">
-		</form>
-		<br />
-		<form action="/" method="GET">
-			<input type="submit" value="Back">
-		</form>
+	<body>
+		<%- include("./partials/sidebar.ejs") %>
+		<div class="container page">
+			<h1>Add Product</h1>
+			<form action="/product/add" method="POST">
+				<table>
+					<tr>
+						<td><label for="name">Product</label></td>
+						<td>
+							<input type="text" name="name" id="name">
+						</td>
+					</tr>
+					<tr>
+						<td><label for="brand">Brand</label></td>
+						<td>
+							<input type="text" name="brand" id="brand">
+						</td>
+					</tr>
+					<tr>
+						<td><label for="description">Description</label></td>
+						<td>
+							<input type="text" name="description" id="description">
+						</td>
+					</tr>
+					<tr>
+						<td><label for="stock">On-hand stock</label></td>
+						<td>
+							<input type="number" name="stock" id="stock">
+						</td>
+					</tr>
+					<tr>
+						<td><label for="sell_price">sell price</label></td>
+						<td>
+							<input type="number" name="price" id="price">
+						</td>
+					</tr>
+					<tr>
+						<td><label for ="category">Category</label></td>
+						<td>
+							<select name="category" id="category">
+								<%
+									for (var i = 0; i < categories.length; i++){
+										%>
+										<option value="<%=categories[i].category_ID%>">
+											<%=categories[i].name%>
+										</option>
+										<%
+									}
+								%>
+							</select>
+						</td>
+					</tr>
+				</table>	
+				<input type="submit" value="Submit">
+			</form>
+			<br />
+			<form action="/" method="GET">
+				<input type="submit" value="Back">
+			</form>
+		</div>
 	</body>
 </html>
