@@ -104,13 +104,24 @@ li form {
   background-color: #A67438;
   position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   width: 100%;
-  height: 60px;
+  height: 60;
   z-index: 1;
 }
 
 .navbar ul {
-  float: left;
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li{
+  float: right;
+}
+
+.navbar ul li form{
   display: block;
   text-align: center;
   padding: 14px 16px;

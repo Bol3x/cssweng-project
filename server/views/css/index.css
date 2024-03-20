@@ -6,11 +6,20 @@ input{
     font-size:30px;
     color:#FAF8F1;
     padding:10px;
+    margin-left: -5px;
     cursor:pointer;
     border:none;
     height: 55px;
     /* positioning styling */
-    width:200px;
+    width:350px;
     margin-top:30px;
     box-shadow:none;
+}
+
+h1{
+    font-size:50px;
+}
+
+#logout{
+    background:#F13F26;
 }
