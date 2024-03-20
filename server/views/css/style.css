@@ -79,18 +79,14 @@ td{
   z-index: 1;
 }
 
-ul {
+.sidebar ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   width: 60px;
 }
-
-li{
-  list-style-type: none;
-}
   
-li form {
+.sidebar li form {
   display: block;
   color: #000;
   padding: 8px 16px;
@@ -112,6 +108,7 @@ li form {
 }
 
 .navbar ul {
+  list-style-type: none;
   display: inline;
   margin: 0;
   padding: 0;

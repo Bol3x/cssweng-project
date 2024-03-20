@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Products</title>
+		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/viewproduct.css">
+	</head>
+	<body>
+		<%- include("./partials/navbar.ejs") %>
+		<%- include("./partials/sidebar.ejs") %>
+		<div class="container page">
+            <table>
+                <tr>
+                    <th>DATE UPDATED</th>
+                    <th>ITEM NO.</th>
+                    <th>PRODUCT</th>
+                    <th>ON-HAND STOCK</th>
+                    <th>STATUS</th>
+                </tr>
+                <!-- INSERT LOOP THAT ADDS A ROW OF PRODUCT INFO -->
+                <!-- sample of row -->
+                <tr>
+                    <td>DATE UPDATED</td>
+                    <td>ITEM NO.</td>
+                    <td>PRODUCT</td>
+                    <td>ON-HAND STOCK</td>
+                    <td>STATUS</td>
+                </tr>
+            </table>
+		</div>
+	</body>
+</html>
