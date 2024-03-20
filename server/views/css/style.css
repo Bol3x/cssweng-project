@@ -45,21 +45,43 @@ td{
   padding:5px;
 }
 
+/* BUTTONS */
+
 .enter{
   /* default button styling */
   font-family: 'Inter', sans-serif;
-  background:#DD9D34;
+  background:#FAF8F1;
   border-radius:30px;
-  font-size:30px;
-  color:#FAF8F1;
-  padding:10px;
+  font-size:20px;
+  color:#DD9D34;
+  padding:5px;
   cursor:pointer;
   border:none;
-  height: 55px;
+  height: 40px;
   /* positioning styling */
-  width:200px;
-  margin-top:30px;
+  width:150px;
+  margin-top:5px;
+  margin-left: 10px;
   box-shadow:none;
+}
+
+.submit{
+  background:#DD9D34;
+  color:#FAF8F1;
+  font-size:30px;
+  height: 55px;
+  width:200px;
+  margin-top:20px;
+}
+
+.add{
+  background:#DD9D34;
+  color:#FAF8F1;
+}
+
+.logout{
+  background:#F13F26;
+  color:#FAF8F1;
 }
 
 /* SIDEBAR CSS */
