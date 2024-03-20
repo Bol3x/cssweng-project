@@ -1,11 +1,9 @@
 #img{
     box-shadow: none;
+    width: 210px;
+    margin-left: 11px;
 }
 
 form{
     text-align:center;
-}
-
-table{
-    padding-left: 110px;
 }
