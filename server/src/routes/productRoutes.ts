@@ -18,6 +18,39 @@ import categoryGet from '../services/user/api/categoryGet.js';
 import validateProducts from '../services/validation/validateProducts.js';
 
 import productsGet from '../services/user/api/productsGet.js';
+import validateUpload from '../services/validation/validateUpload.js';
+import multer from 'multer';
+
+const file_whitelist = ['application/pdf',]
+
+//multer config
+const maxSize = 8 * 1024 * 1024; //8MB
+const upload = multer({
+	storage: multer.diskStorage({
+		destination: function (req, file, cb) {
+		  cb(null, 'public/uploads')
+		},
+		filename: function (req, file, cb) {
+		  const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
+		  cb(null, file.fieldname + '-' + uniqueSuffix)
+		}
+	  }),
+
+	limits: { fileSize: maxSize },
+	  
+	fileFilter: (req, file, cb) => {
+
+	console.log("File: ");
+	console.log(file);
+	if (!file_whitelist.includes(file.mimetype)) {
+		return cb(new Error('file is not allowed'))
+	}
+
+	cb(null, true)
+	}
+})
+
+import { unlink } from 'fs';
 
 const ProductRouter: Router = express.Router();
 
@@ -42,8 +75,17 @@ ProductRouter.get('/update', (req, res) => {
 ProductRouter.post('/add', userCheckAdmin, validateProducts, productAdd);
 ProductRouter.get('/get', productGet);
 ProductRouter.put('/:id', validateProducts, productEdit);
-ProductRouter.put('/restock/:id', productRestock);
-ProductRouter.put('/sale/:id', productSale);
+ProductRouter.post('/restock', upload.single('receipt'), async (req,res,next) => {
+	console.log("Uploading")
+	try{
+	  (req.file != undefined) ? await validateUpload(req.file?.path, file_whitelist) : true;
+	  next();
+	}catch(err){
+		next(err);
+	}
+
+}, productRestock);
+ProductRouter.post('/sale', productSale);
 ProductRouter.delete('/remove', userCheckAdmin, productDelete);
 
 export default ProductRouter;

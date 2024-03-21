@@ -5,7 +5,7 @@
 
 import prisma from "../../../repositories/prismaClient.js";
 
-export default async (product_id: number, stock: number, log_id: number) => {
+export default async (product_id: number, stock: number, log_id: number, path: string | null = null) => {
 	try {
 
 		const transaction = await prisma.transaction.create({
@@ -21,6 +21,7 @@ export default async (product_id: number, stock: number, log_id: number) => {
 							product_ID: product_id
 						}
 					},
+					receipt: path,
 
 			}
 		})

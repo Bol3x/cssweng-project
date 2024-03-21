@@ -15,8 +15,7 @@ import logAdd from "../../logging/logAdd.js";
 export default async (req: Request, res: Response, next: NextFunction) => {
 	try {
 		//get the product id from the request parameters
-		const { stock } = req.body;
-		const { id } = req.params;
+		const { stock, id } = req.body;
 
 		if (stock === '' || stock === undefined) throw new Error("Stock is undefined");
 		if (id === '' || id === undefined) throw new Error("ID is undefined")
@@ -48,11 +47,15 @@ export default async (req: Request, res: Response, next: NextFunction) => {
 
 		const log = await logAdd(user!.user_ID, 2);
 
-		const transaction = await transactionAdd(product.product_ID, Number(stock), log.log_ID);
+		if (req.file !== undefined)
+			await transactionAdd(product.product_ID, Number(stock), log.log_ID, req.file.path);
+
+		else await transactionAdd(product.product_ID, Number(stock), log.log_ID);
 
 		res.status(200).json(product);
 	//catch any errors and send to next middleware error handler
 	} catch (error: any) {
+		console.log(error)
 		next(DatabaseError.Type(error.code));
 	}
 }

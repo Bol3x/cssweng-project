@@ -17,7 +17,6 @@ export default async (req: Request, res: Response, next: NextFunction) => {
 	try {
 		const product = await productAdd(req.body)
 
-
 		const user = await userGetUnique(req.user!.email)
 
 		const log = await logAdd(user!.user_ID, 3);

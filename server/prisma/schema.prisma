@@ -57,6 +57,7 @@ model transaction {
 	log_ID			Int			  @id
 	product_ID		Int
 	Amount			Int
+	receipt			String?
 
 	log				log		@relation(fields: [log_ID], references: [log_ID], onDelete: NoAction, onUpdate: NoAction, map: "fk_lid")
 	product			product	@relation(fields: [product_ID], references: [product_ID], onDelete: NoAction, onUpdate: NoAction, map: "fk_pid")
@@ -87,7 +88,7 @@ model admin_user_log {
 	target_ID	Int
 
 	log			log		@relation(fields: [log_ID], references: [log_ID], onDelete: Cascade, onUpdate: NoAction, map: "fk_log_id")
-	user		user	@relation(fields: [target_ID], references: [user_ID], onDelete: NoAction, onUpdate: NoAction, map: "fk_tgt_uid")
+	tgt_user		user	@relation(fields: [target_ID], references: [user_ID], onDelete: NoAction, onUpdate: NoAction, map: "fk_tgt_uid")
 
 	@@index ([log_ID], map: "fk_log_id_idx")
 	@@index ([target_ID], map: "fk_tgt_uid_idx")

@@ -1,0 +1,2 @@
+id,user,log_type,date,details,product_name,amount_changed
+18,test_admin@domain,Create Product,Thu Mar 21 2024 20:08:01 GMT+0800 (Singapore Standard Time),,Test,100
