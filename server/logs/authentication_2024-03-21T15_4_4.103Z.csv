@@ -1,0 +1,3 @@
+id,user,log_type,details,date
+1,test_admin@domain,Login,,Thu Mar 21 2024 23:23:00 GMT+0800 (Singapore Standard Time)
+2,test_admin@domain,Logout,,Thu Mar 21 2024 23:23:01 GMT+0800 (Singapore Standard Time)

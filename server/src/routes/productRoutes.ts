@@ -84,6 +84,7 @@ ProductRouter.get('/dashboard/:id', (req, res) => {
 ProductRouter.post('/add', userCheckAdmin, validateProducts, productAdd);
 ProductRouter.get('/get', productGet);
 ProductRouter.put('/:id', validateProducts, productEdit);
+
 ProductRouter.post('/restock', upload.single('receipt'), async (req,res,next) => {
 	console.log("Uploading")
 	try{
@@ -94,6 +95,7 @@ ProductRouter.post('/restock', upload.single('receipt'), async (req,res,next) =>
 	}
 
 }, productRestock);
+
 ProductRouter.post('/sale', productSale);
 ProductRouter.delete('/remove', userCheckAdmin, productDelete);
 

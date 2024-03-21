@@ -13,6 +13,7 @@ import ErrorHandler from '../services/controllers/errorResponse.js';
 
 import userCheckAuth from '../services/controllers/user/authentication/userCheckAuth.js';
 import userCheckAdmin from '../services/controllers/user/authentication/userCheckAdmin.js';
+import exportLogs from '../services/controllers/exportLogs.js';
 
 export const LoadRoutes = (app: Router) => {
 
