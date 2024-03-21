@@ -1,3 +1,13 @@
-body{
-    background-color:black;
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap'); 
+/* fonts used in this webapp */
+h1{
+    margin: 25px;
+}
+
+#text{
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 70px;
+    line-height: 85px;
 }

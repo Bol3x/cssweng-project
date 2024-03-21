@@ -36,12 +36,14 @@ const corsOptions = {
 }
 
 export const loadMiddlewares = (app: Express) => {
+
 	app.use(cors(corsOptions));
 	app.use(express.json());
 	app.use(express.urlencoded({ extended: true }));
 	app.use(methodOverride('_method'));
 
 	//user authentication
+	const expiryTime = 1000 * 60 * 15  // 15 minutes
 	app.use(flash());
 	app.use(
 		session({
@@ -50,7 +52,7 @@ export const loadMiddlewares = (app: Express) => {
 			saveUninitialized: false,
 			cookie: {
 				secure: false,
-				maxAge: 1000 * 60 * 60 * 24, // 1 day
+				maxAge: expiryTime, // 1 day
 			}
 	}));
 	app.use(passport.session());
