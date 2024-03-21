@@ -7,8 +7,8 @@
 		<link rel="stylesheet" href="/css/adduser.css">
 	</head>
 	<body>
-		<%- include("./partials/navbar.ejs") %>
-		<%- include("./partials/sidebar.ejs") %>
+		<!-- <%- include("./partials/navbar.ejs") %> -->
+		<%- include("./partials/sideuser.ejs") %>
 		<div class="container page">
 			<h1>Add User</h1>
 			<form action="/user/add"  enctype="multipart/form-data" method="POST">
@@ -45,10 +45,6 @@
 					</tr>
 				</table>
 				<input class="enter submit" type="submit" value="Submit">
-			</form>
-			<br />
-			<form action="/" method="GET">
-				<input type="submit" class="enter submit back" value="Back">
 			</form>
 		</div>
 	</body>

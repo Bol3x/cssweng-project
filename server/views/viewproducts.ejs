@@ -7,9 +7,10 @@
 		<link rel="stylesheet" href="/css/style.css">
 	</head>
 	<body>
-		<%- include("./partials/navbar.ejs") %>
-		<%- include("./partials/sidebar.ejs") %>
+		<!-- <%- include("./partials/navbar.ejs") %> -->
+		<%- include("./partials/sideproduct.ejs") %>
 		<div class="view">
+            <h1>PRODUCTS</h1>
             <table>
                 <tr>
                     <th>PRODUCT</th>
@@ -24,10 +25,10 @@
                         <td><%= prod.name %></td>
                         <td><%= prod.poduct_id %></td>
                         <td><%= prod.stock %></td>
-                        <td><%= prod.last_updated %></td>
+                        <td><%= prod.last_updated.toLocaleDateString() %></td>
                         <td>
                             <form action="" method="post">
-                                <input type="image"  class="view_button" src= "/images/update.png" alt="Update">
+                                <input type="image"  class="view_button" src= "/images/edit.png" alt="Update">
                             </form>
                         </td>
                         <td>

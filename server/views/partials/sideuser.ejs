@@ -5,25 +5,20 @@
     <!-- ADD USERNAME -->
     <ul>
         <li>
-            <form action="/_/view" method="post">
+            <form action="/user" method="get">
 				<input type="submit" class="enter" value="View">
 			</form>
         </li>
         <li>
-            <form action="/_/add" method="post">
+            <form action="/user/add" method="get">
 				<input type="submit" class="enter" value="Add">
 			</form>
         </li>
-        <!-- <li>
-            <form action="/_/update" method="post">
-				<input type="submit" class="enter" value="Update">
+        <li>
+            <form action="/" method="GET">
+				<input type="submit" class="enter back" value="Back">
 			</form>
-        </li> -->
-        <!-- <li>
-            <form action="/_/delete" method="post">
-				<input type="submit" class="enter" value="Delete">
-			</form>
-        </li> -->
+        </li>
         <li>
             <form action="/auth/logout" method="post">
 				<input type="submit"  class="enter logout" value="Logout">

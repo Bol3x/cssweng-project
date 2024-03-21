@@ -7,9 +7,10 @@
 		<link rel="stylesheet" href="/css/style.css">
 	</head>
 	<body>
-		<%- include("./partials/navbar.ejs") %>
-		<%- include("./partials/sidebar.ejs") %>
+		<!-- <%- include("./partials/navbar.ejs") %> -->
+		<%- include("./partials/sidecategory.ejs") %>
 		<div class="view">
+            <h1>CATEGORIES</h1>
             <table>
                 <tr>
                     <th>CATEGORY</th>
@@ -21,7 +22,7 @@
                         <td><%= category.name %></td>
                         <td>
                             <form action="" method="post">
-                                <input type="image"  class="view_button" src= "/images/update.png" alt="Update">
+                                <input type="image"  class="view_button" src= "/images/edit.png" alt="Update">
                             </form>
                         </td>
                         <td>

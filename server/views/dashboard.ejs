@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"><script>
+    <script src="https://cdn.anychart.com/releases/8.0.0/js/anychart-base.min.js" /></script>
+    <script>
+        anychart.onDocumentReady(function(){
+            var data;
+            var chart = anychart.column();
+            chart.data(data);
+            chart.title("Product Sales Dashboard (30-Month Period)");
+            chart.container('dash');
+            chart.draw();
+        });
+    </script>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Users</title>
+		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/viewuser.css"> <!-- todo-->
+	</head>
+	<body>
+		<%- include("./partials/navbar.ejs") %>
+		<%- include("./partials/sidebar.ejs") %>
+		<div class="container page">
+            <div class="dash">
+
+            </div>
+		</div>
+	</body>
+</html>

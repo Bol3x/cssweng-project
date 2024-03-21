@@ -52,6 +52,8 @@ const upload = multer({
 
 import { unlink } from 'fs';
 
+//import dashboardDataGet from '../services/user/api/dashboardDataGet.js';
+
 const ProductRouter: Router = express.Router();
 
 ProductRouter.get('/', (req, res) => {
@@ -72,6 +74,13 @@ ProductRouter.get('/update', (req, res) => {
 	})
 });
 
+/*
+ProductRouter.get('/dashboard/:id', (req, res) => {
+	dashboardDataGet(':id').then((trans_data: any) => {
+		res.render('dashboard', trans_data);
+	})
+});
+*/
 ProductRouter.post('/add', userCheckAdmin, validateProducts, productAdd);
 ProductRouter.get('/get', productGet);
 ProductRouter.put('/:id', validateProducts, productEdit);
