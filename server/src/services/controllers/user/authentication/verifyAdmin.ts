@@ -3,7 +3,7 @@
 
 import { Request, Response } from "express";
 
-import userGetUnique from "../api/userGetUnique.js";
+import userGetUnique from "../../../user/api/userGetUnique.js";
 import bcryptjs from "bcryptjs";
 
 export default async function verifyAdmin(req: Request, res: Response){

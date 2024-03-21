@@ -4,7 +4,7 @@
 
 import { Request, Response, NextFunction } from 'express';
 import { user } from '@prisma/client';
-import userGetUnique from '../api/userGetUnique.js';
+import userGetUnique from '../../../user/api/userGetUnique.js';
 
 export default async function userCheckAdmin(req: Request, res: Response, next: NextFunction){
 

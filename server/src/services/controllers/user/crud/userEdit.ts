@@ -6,13 +6,13 @@
 import { Request, Response, NextFunction } from "express";
 import bcryptjs from "bcryptjs";
 
-import DatabaseError from "../error/databaseError.js";
+import DatabaseError from "../../../error/databaseError.js";
 
-import validatePassword from "../validation/validatePassword.js";
+import validatePassword from "../../../validation/validatePassword.js";
 
-import prisma from "../../repositories/prismaClient.js";
-import logAdd from "../logging/logAdd.js";
-import adminLogAdd from "../logging/admin/adminLogAdd.js";
+import prisma from "../../../../repositories/prismaClient.js";
+import logAdd from "../../../logging/logAdd.js";
+import adminLogAdd from "../../../logging/admin/adminLogAdd.js";
 
 
 export default async (req: Request, res: Response, next: NextFunction) => {
@@ -44,6 +44,6 @@ export default async (req: Request, res: Response, next: NextFunction) => {
 			res.json(user);
 	} catch (error : any) {
 		console.log(error)
-		next(DatabaseError.DBError(error.code));
+		next(DatabaseError.Type(error.code));
 	}
 }

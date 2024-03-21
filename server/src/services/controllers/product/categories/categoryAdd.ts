@@ -4,12 +4,13 @@
  */
 
 //explicit Prisma dependency
-import prisma from "../../../repositories/prismaClient.js";
+import prisma from "../../../../repositories/prismaClient.js";
 
 import { Request, Response, NextFunction } from "express";
 
 export default async (req: Request, res: Response, next: NextFunction) => {
 	try {
+		if (req.body.name === "") throw new Error("Name is undefined");
 		const category = await prisma.product_category.create({
 			data: {
 				name: req.body.name,

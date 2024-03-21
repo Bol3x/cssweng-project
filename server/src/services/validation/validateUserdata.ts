@@ -10,30 +10,23 @@ import validateName from './validateName.js';
 import validatePhone from './validatePhone.js';
 import validateUpload from './validateUpload.js';
 
-export default (whitelist: Array<string>) => {
+export default (file_whitelist: Array<string>) => {
 	return async (req: Request, res: Response, next: NextFunction) => {
 		try{
 
-			console.log("Validating user information")
 			let { name, password, email, phone_num } = req.body;
 			email = email.toLowerCase();
 
-			console.log('Validating username')
 			const isNameValid = validateName(name);
 
-			console.log('Validating email')
 			const isEmailValid = await validateEmail(email);
 
-			console.log('Validating password')
 			const isPasswordValid = validatePassword(password);
 
-			console.log('Validating phone num')
 			const isPhoneValid = validatePhone(phone_num);
 
-			console.log('Validating image')
-			const isFileValid = (req.file != undefined) ? await validateUpload(req.file?.path, whitelist) : true; //image is optional
+			const isFileValid = (req.file != undefined) ? await validateUpload(req.file?.path, file_whitelist) : true; //image is optional
 
-			console.log("Final check")
 			//edge case
 			if (email === password.toLowerCase()) throw new Error('The Email cannot be your password!!!');
 
@@ -46,7 +39,7 @@ export default (whitelist: Array<string>) => {
 					console.log("file has been deleted.");
 				})
 			}
-			console.log(err);
+			
 			next(err)
 		}
 	}

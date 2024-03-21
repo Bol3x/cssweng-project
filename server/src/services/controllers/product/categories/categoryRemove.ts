@@ -4,7 +4,7 @@
  */
 
 //explicit Prisma dependency
-import prisma from "../../../repositories/prismaClient.js";
+import prisma from "../../../../repositories/prismaClient.js";
 
 import { Request, Response, NextFunction } from "express";
 

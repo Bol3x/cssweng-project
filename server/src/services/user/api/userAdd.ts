@@ -30,7 +30,6 @@ export default async function userAdd(data: any){
 		return user;
 	}
 	catch(err){
-		console.log(err);
 		throw err;
 	}
 }

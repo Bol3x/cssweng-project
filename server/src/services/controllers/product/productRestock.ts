@@ -5,12 +5,12 @@
 
 import { Request, Response, NextFunction } from "express";
 
-import DatabaseError from "../error/databaseError.js";
+import DatabaseError from "../../error/databaseError.js";
 
-import prisma from "../../repositories/prismaClient.js";
-import transactionAdd from "../logging/transactions/transactionAdd.js";
-import userGetUnique from "../user/api/userGetUnique.js";
-import logAdd from "../logging/logAdd.js";
+import prisma from "../../../repositories/prismaClient.js";
+import transactionAdd from "../../logging/transactions/transactionAdd.js";
+import userGetUnique from "../../user/api/userGetUnique.js";
+import logAdd from "../../logging/logAdd.js";
 
 export default async (req: Request, res: Response, next: NextFunction) => {
 	try {
@@ -18,8 +18,8 @@ export default async (req: Request, res: Response, next: NextFunction) => {
 		const { stock } = req.body;
 		const { id } = req.params;
 
-		console.log(req.body);
-		console.log(req.params);
+		if (stock === '' || stock === undefined) throw new Error("Stock is undefined");
+		if (id === '' || id === undefined) throw new Error("ID is undefined")
 
 		const product_data = await prisma.product.findFirstOrThrow({
 			where: {
@@ -53,6 +53,6 @@ export default async (req: Request, res: Response, next: NextFunction) => {
 		res.status(200).json(product);
 	//catch any errors and send to next middleware error handler
 	} catch (error: any) {
-		next(DatabaseError.DBError(error.code));
+		next(DatabaseError.Type(error.code));
 	}
 }

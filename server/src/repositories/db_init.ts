@@ -53,5 +53,8 @@ prisma.log_category.createMany({
 			{trtype_name: "Read User"},		//8
 			{trtype_name: "Update User"},	//9
 			{trtype_name: "Delete User"},	//10
+
+			{trtype_name: "Login"},			//11
+			{trtype_name: "Logout"},		//12	
 	],
 }).then(() => {});

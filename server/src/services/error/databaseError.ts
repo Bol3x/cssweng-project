@@ -1,16 +1,15 @@
 //creates a error subclass called DatabaseError
 //this is used by all the services that use the prisma client
 
-export default class DatabaseError {
+export default class DatabaseError extends Error{
 	id : number;
-	message : string;
 
 	constructor(id: number, message: string) {
+		super(message)
 		this.id = id;
-		this.message = message;
 	}
 
-	static DBError(code: string){
+	static Type(code: string){
 		switch(code){
 			case "P2000":
 				return new DatabaseError(400, "Input is too long.");

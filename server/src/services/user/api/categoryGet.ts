@@ -12,7 +12,6 @@ export default async () => {
 		const categories = await prisma.product_category.findMany();
 		return categories
 	} catch (error : any) {
-		console.log(error)
-		throw DatabaseError.DBError(error.code);
+		throw DatabaseError.Type(error.code);
 	}
 }

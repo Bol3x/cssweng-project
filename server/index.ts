@@ -5,10 +5,11 @@
 import express, {Express} from 'express';
 import passport from 'passport';
 
+
 //custom imports
 import { loadMiddlewares } from './settings.js';
 import { LoadRoutes } from './src/routes/mainRoute.js';
-import initializePassport from './src/services/user/auth/passport/passport-config.js';
+import initializePassport from './src/services/user/auth/passport-config.js';
 
 initializePassport(passport);
 

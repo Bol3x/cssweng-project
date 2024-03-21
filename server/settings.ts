@@ -9,11 +9,25 @@ import methodOverride from 'method-override';
 import flash from 'express-flash';
 import session from 'express-session';
 import passport from 'passport';
+import rateLimit from 'express-rate-limit';
 
 import dotenv from 'dotenv';
 if (process.env.NODE_ENV !== 'production') {
 	dotenv.config();
 }
+
+//user type
+declare global {
+	namespace Express {
+	  interface User {
+		email: string;
+	  }
+
+	  interface InputError extends Error{
+		code: number
+	  }
+	}
+  }
 
 const corsOptions = {
 	origin: process.env.CORS_ORIGIN ?? 'http://localhost:3000',
@@ -35,7 +49,7 @@ export const loadMiddlewares = (app: Express) => {
 			resave: false,
 			saveUninitialized: false,
 			cookie: {
-				secure: process.env.NODE_ENV === 'production' ? true : false,
+				secure: false,
 				maxAge: 1000 * 60 * 60 * 24, // 1 day
 			}
 	}));
@@ -46,3 +60,15 @@ export const loadMiddlewares = (app: Express) => {
 	app.set('view engine', 'ejs');
 	app.use(express.static('views'));
 }
+
+/*
+    Locks out IP address from logging after recognizing repeated requests or login attempts
+*/
+export const loginRateLimiter = rateLimit({
+	windowMs: 4 * 60 * 60 * 1000,         //window size = 4 hours
+	max: 20,                              //max of 20 REQUESTS within the window
+	message: 'Multiple failed login attempts detected. Login disabled for 4 hours', 
+	standardHeaders: true,
+	legacyHeaders: false,
+	skipSuccessfulRequests: true          //successful logins don't count towards the request limit
+  });

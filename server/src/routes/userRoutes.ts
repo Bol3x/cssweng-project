@@ -6,12 +6,12 @@
 import express, { Express } from 'express';
 import multer from "multer";
 
-import userAddEmployee from '../services/user/userAddEmployee.js';
-import userGet from '../services/user/userGetEmployees.js';
-import userRemove from '../services/user/userRemove.js';
+import userAddEmployee from '../services/controllers/user/crud/userAddEmployee.js';
+import userGet from '../services/controllers/user/crud/userGetEmployees.js';
+import userRemove from '../services/controllers/user/crud/userRemove.js';
 
 import validateUserdata from '../services/validation/validateUserdata.js';
-import verifyAdmin from '../services/user/auth/verifyAdmin.js';
+import verifyAdmin from '../services/controllers/user/authentication/verifyAdmin.js';
 
 //
 const whitelist_filetypes = [

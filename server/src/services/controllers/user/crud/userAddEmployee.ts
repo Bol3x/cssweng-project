@@ -6,12 +6,12 @@
 import { Request, Response, NextFunction } from "express";
 import { unlink } from 'fs';
 
-import DatabaseError from "../error/databaseError.js";
+import DatabaseError from "../../../error/databaseError.js";
 
-import  userAdd  from "./api/userAdd.js";
-import userGetUnique from "./api/userGetUnique.js";
-import logAdd from "../logging/logAdd.js";
-import adminLogAdd from "../logging/admin/adminLogAdd.js";
+import  userAdd  from "../../../user/api/userAdd.js";
+import userGetUnique from "../../../user/api/userGetUnique.js";
+import logAdd from "../../../logging/logAdd.js";
+import adminLogAdd from "../../../logging/admin/adminLogAdd.js";
 
 export default async (req: Request, res: Response, next: NextFunction) => {
 	try {
@@ -39,6 +39,6 @@ export default async (req: Request, res: Response, next: NextFunction) => {
 				console.log("file has been deleted.")
 		});
 		console.log(error)
-		next(DatabaseError.DBError(error.code));
+		next(DatabaseError.Type(error.code));
 	}
 }

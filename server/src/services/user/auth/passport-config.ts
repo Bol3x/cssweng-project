@@ -1,10 +1,10 @@
 //import passport-local
 import { Strategy as LocalStrategy } from 'passport-local';
 
-import userGetUnique from '../../api/userGetUnique.js';
+import userGetUnique from '../api/userGetUnique.js';
 import { authenticateUser } from './authenticateUser.js';
 import { user } from '@prisma/client';
-import DatabaseError from '../../../error/databaseError.js';
+import DatabaseError from '../../error/databaseError.js';
 
 export default function initializeUser(passport: any): void {
 

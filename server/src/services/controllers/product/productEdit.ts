@@ -5,12 +5,13 @@
 
 import { Request, Response, NextFunction } from "express";
 
-import DatabaseError from "../error/databaseError.js";
+import DatabaseError from "../../error/databaseError.js";
 
-import prisma from "../../repositories/prismaClient.js";
+import prisma from "../../../repositories/prismaClient.js";
 
-import transactionAdd from "../logging/transactions/transactionAdd.js";
-import logAdd from "../logging/logAdd.js";
+import transactionAdd from "../../logging/transactions/transactionAdd.js";
+import logAdd from "../../logging/logAdd.js";
+import userGetUnique from "../../user/api/userGetUnique.js";
 
 export default async (req: Request, res: Response, next: NextFunction) => {
 	try {
@@ -40,8 +41,7 @@ export default async (req: Request, res: Response, next: NextFunction) => {
 			},
 		});
 
-		//@ts-ignore
-		const user = await userGetUnique(req.user.email)
+		const user = await userGetUnique(req.user!.email)
 
 		const log = await logAdd(user!.user_ID, 5);
 
@@ -51,6 +51,6 @@ export default async (req: Request, res: Response, next: NextFunction) => {
 
 	//catch any errors and send to next middleware error handler
 	} catch (error: any) {
-		next(DatabaseError.DBError(error.code));
+		next(DatabaseError.Type(error.code));
 	}
 }

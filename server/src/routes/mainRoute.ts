@@ -9,10 +9,10 @@ import CategoryRouter from './categoryRoutes.js';
 import UserRouter from './userRoutes.js';
 import UserAuthRouter from './userAuthRoutes.js';
 
-import ErrorHandler from '../services/error/errorResponse.js';
+import ErrorHandler from '../services/controllers/errorResponse.js';
 
-import userCheckAuth from '../services/user/auth/userCheckAuth.js';
-import userCheckAdmin from '../services/user/auth/userCheckAdmin.js';
+import userCheckAuth from '../services/controllers/user/authentication/userCheckAuth.js';
+import userCheckAdmin from '../services/controllers/user/authentication/userCheckAdmin.js';
 
 export const LoadRoutes = (app: Router) => {
 
