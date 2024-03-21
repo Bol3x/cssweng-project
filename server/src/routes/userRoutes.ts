@@ -64,12 +64,6 @@ UserRouter.get('/add', (req, res) => {
 	res.render('adduser');
 });
 
-UserRouter.get('/update', (req, res) => {
-	usersGet().then((user: any) =>{
-		res.render('updateuser', {user: user});
-	})
-});
-
 UserRouter.get('/get', userGet);
 UserRouter.post('/add', upload.single('img'), validateUserdata(whitelist_filetypes), userAddEmployee);
 

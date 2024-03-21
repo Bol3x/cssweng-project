@@ -7,8 +7,8 @@
 		<link rel="stylesheet" href="/css/addproduct.css">
 	</head>
 	<body>
-		<%- include("./partials/navbar.ejs") %>
-		<%- include("./partials/sidebar.ejs") %>
+		<!-- <%- include("./partials/navbar.ejs") %> -->
+		<%- include("./partials/sideproduct.ejs") %>
 		<div class="container page">
 			<h1>Add Product</h1>
 			<form action="/product/add" method="POST">
@@ -61,10 +61,6 @@
 					</tr>
 				</table>	
 				<input type="submit" class="enter submit" value="Submit">
-			</form>
-			<br />
-			<form action="/" method="GET">
-				<input type="submit" class="enter submit back" value="Back">
 			</form>
 		</div>
 	</body>

@@ -35,6 +35,10 @@ input{
   margin-left: 200px;
 }
 
+h1{
+  text-align: center;
+}
+
 table{
   padding: 5px;
   margin: auto;
@@ -50,10 +54,11 @@ td{
   /* background:#FAF8F1; */
   /* text-align:center;
   justify-content:center; */
-  margin-top: 53px;
+  margin-top: auto; /* 53*/
   margin-left: 222px;
   margin-right: -7px;
   padding: 0;
+  color:#A67438;
 }
 
 .view table{
@@ -116,10 +121,7 @@ td{
 
 .back{
   background:#B8ABA9;
-  font-size: 20px;
-  height: 40px;
-  width: 100px;
-  margin-top: 5px;
+  color:#FAF8F1;
 }
 
 /* SIDEBAR CSS */
@@ -234,4 +236,5 @@ td{
   padding: 0;
   margin: 0;
   text-align: center;
+  border-radius: 0;
 }
