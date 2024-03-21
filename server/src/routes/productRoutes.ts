@@ -33,6 +33,12 @@ ProductRouter.get('/add', (req, res) => {
 	})
 });
 
+ProductRouter.get('/update', (req, res) => {
+	productsGet().then((product: any) =>{
+		res.render('updateproduct', {product: product});
+	})
+});
+
 ProductRouter.post('/add', userCheckAdmin, validateProducts, productAdd);
 ProductRouter.get('/get', productGet);
 ProductRouter.put('/:id', validateProducts, productEdit);

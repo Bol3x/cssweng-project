@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Update Product</title>
+		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/addproduct.css">
+	</head>
+	<body>
+		<%- include("./partials/navbar.ejs") %>
+		<%- include("./partials/sidebar.ejs") %>
+		<div class="container page">
+			<h1>Update Product</h1>
+			<form action="/product/add" method="POST">
+				<table>
+					<tr>
+						<td><label for="name">Product</label></td>
+						<td>
+							<input type="text" name="name" id="name" placeholder="<%= name %>">
+						</td>
+					</tr>
+					<tr>
+						<td><label for="brand">Brand</label></td>
+						<td>
+							<input type="text" name="brand" id="brand" placeholder="<%= brand %>">
+						</td>
+					</tr>
+					<tr>
+						<td><label for="description">Description</label></td>
+						<td>
+							<input type="text" name="description" id="description" placeholder="<%= description %>">
+						</td>
+					</tr>
+					<tr>
+						<td><label for="stock">On-hand stock</label></td>
+						<td>
+							<input type="number" name="stock" id="stock" placeholder="<%= stock %>">
+						</td>
+					</tr>
+					<tr>
+						<td><label for="sell_price">Sell Price</label></td>
+						<td>
+							<input type="number" name="price" id="price" placeholder="<%= sell_price %>">
+						</td>
+					</tr>
+					<tr>
+						<td><label for ="category">Category</label></td>
+						<td>
+							<select name="category" id="category" placeholder="<%= category %>">
+								<%
+									for (var i = 0; i < categories.length; i++){
+										%>
+										<option value="<%=categories[i].category_ID%>">
+											<%=categories[i].name%>
+										</option>
+										<%
+									}
+								%>
+							</select>
+						</td>
+					</tr>
+				</table>	
+				<input type="submit" class="enter submit" value="Submit">
+			</form>
+			<br />
+			<form action="/" method="GET">
+				<input type="submit" class="enter submit back" value="Back">
+			</form>
+		</div>
+	</body>
+</html>

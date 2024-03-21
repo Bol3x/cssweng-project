@@ -25,6 +25,10 @@ CategoryRouter.get('/add', userCheckAdmin, (req, res) => {
 	res.render('addCategory');
 });
 
+CategoryRouter.get('/update', userCheckAdmin, (req, res) => {
+	res.render('updatecategory');
+});
+
 CategoryRouter.post('/add', userCheckAdmin, categoryAdd);
 CategoryRouter.get('/get', categoryGet);
 CategoryRouter.put('/:id', userCheckAdmin, categoryEdit);

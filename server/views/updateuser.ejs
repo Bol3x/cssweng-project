@@ -1,0 +1,54 @@
+<!--create an input form to generate a new user into the database-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Update User</title>
+		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/adduser.css">
+	</head>
+	<body>
+		<%- include("./partials/navbar.ejs") %>
+		<%- include("./partials/sidebar.ejs") %>
+		<div class="container page">
+			<h1>Update User</h1>
+			<form action="/user/add"  enctype="multipart/form-data" method="POST">
+				<table>
+					<tr>
+						<td><label for="name">Username</label></td>
+						<td>
+							<input type="text" name="name" id="name" placeholder="<%= name %>">
+						</td>
+					</tr>
+					<tr>
+						<td><label for="password">Password</label></td>
+						<td>
+							<input type="text" name="password" id="password" placeholder="new password">
+						</td>
+					</tr>
+					<tr>
+						<td><label for="email">Email</label></td>
+						<td>
+							<input type="text" name="email" id="email" placeholder="<%= email %>">
+						</td>
+					</tr>
+					<tr>
+						<td><label for="phone_num">Mobile Number</label></td>
+						<td>
+							<input type="number" name="phone_num" id="phone_num" maxlength="11" placeholder="<%= phone_num %>">
+						</td>
+					</tr>
+					<tr>
+						<td><label for="img">Icon</label></td>
+						<td>
+							<input type="file" id="img" name="img", accept="image/*">
+						</td>
+					</tr>
+				</table>
+				<input class="enter submit" type="submit" value="Submit">
+			</form>
+			<br />
+			<form action="/" method="GET">
+				<input type="submit" class="enter submit back" value="Back">
+			</form>
+		</div>
+	</body>
