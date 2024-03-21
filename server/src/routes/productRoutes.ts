@@ -17,7 +17,15 @@ import userCheckAdmin from '../services/controllers/user/authentication/userChec
 import categoryGet from '../services/user/api/categoryGet.js';
 import validateProducts from '../services/validation/validateProducts.js';
 
+import productsGet from '../services/user/api/productsGet.js';
+
 const ProductRouter: Router = express.Router();
+
+ProductRouter.get('/', (req, res) => {
+	productsGet().then((product: any) =>{
+		res.render('viewproducts', {product: product});
+	})
+});
 
 ProductRouter.get('/add', (req, res) => {
 	categoryGet().then((categories: any) =>{

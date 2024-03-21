@@ -15,6 +15,12 @@ import userCheckAdmin from '../services/controllers/user/authentication/userChec
 
 const CategoryRouter: Router = express.Router();
 
+CategoryRouter.get('/', userCheckAdmin, (req, res) => {
+	categoryGet().then((categories: any) =>{
+		res.render('viewcategories', {categories: categories});
+	})
+});
+
 CategoryRouter.get('/add', userCheckAdmin, (req, res) => {
 	res.render('addCategory');
 });

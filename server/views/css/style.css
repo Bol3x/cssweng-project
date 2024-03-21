@@ -46,6 +46,35 @@ td{
   text-align: left;
 }
 
+.view{
+  /* background:#FAF8F1; */
+  /* text-align:center;
+  justify-content:center; */
+  margin-top: 53px;
+  margin-left: 222px;
+  margin-right: -7px;
+  padding: 0;
+}
+
+.view table{
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+}
+
+.view table tr th{
+  background-color: #DD9D34;
+  color: #FAF8F1;
+  padding: 12px;
+}
+
+.view table tr td{
+  background-color: #DDBC86;
+  color: #FAF8F1;
+  padding: 12px;
+  border: 5px solid;
+}
+
 /* BUTTONS */
 
 .enter{
@@ -192,4 +221,17 @@ td{
 
 .navbar ul li form input:hover{
   background-color: #DD9D34;
+}
+
+/* UPDATE AND DELETE BUTTONS */
+
+.view_button{
+  width: 25px;
+  height: 25px;
+  border: none;
+  cursor: pointer;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
 }

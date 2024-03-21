@@ -5,29 +5,38 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Products</title>
 		<link rel="stylesheet" href="/css/style.css">
-		<link rel="stylesheet" href="/css/viewproduct.css">
 	</head>
 	<body>
 		<%- include("./partials/navbar.ejs") %>
 		<%- include("./partials/sidebar.ejs") %>
-		<div class="container page">
+		<div class="view">
             <table>
                 <tr>
-                    <th>DATE UPDATED</th>
-                    <th>ITEM NO.</th>
                     <th>PRODUCT</th>
+                    <th>ITEM NO.</th>
                     <th>ON-HAND STOCK</th>
-                    <th>STATUS</th>
+                    <th>DATE UPDATED</th>
+                    <th></th>
+                    <th></th>
                 </tr>
-                <!-- INSERT LOOP THAT ADDS A ROW OF PRODUCT INFO -->
-                <!-- sample of row -->
-                <tr>
-                    <td>DATE UPDATED</td>
-                    <td>ITEM NO.</td>
-                    <td>PRODUCT</td>
-                    <td>ON-HAND STOCK</td>
-                    <td>STATUS</td>
-                </tr>
+                <% for (let prod of product) { %>
+                    <tr>
+                        <td><%= prod.name %></td>
+                        <td><%= prod.poduct_id %></td>
+                        <td><%= prod.stock %></td>
+                        <td><%= prod.last_updated %></td>
+                        <td>
+                            <form action="" method="post">
+                                <input type="image"  class="view_button" src= "/images/update.png" alt="Update">
+                            </form>
+                        </td>
+                        <td>
+                            <form action="" method="post">
+                                <input type="image"  class="view_button" src= "/images/delete.png" alt="Delete">
+                            </form>
+                        </td>
+                    </tr>
+                <% } %>
             </table>
 		</div>
 	</body>

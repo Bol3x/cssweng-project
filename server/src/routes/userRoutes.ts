@@ -13,6 +13,8 @@ import userRemove from '../services/controllers/user/crud/userRemove.js';
 import validateUserdata from '../services/validation/validateUserdata.js';
 import verifyAdmin from '../services/controllers/user/authentication/verifyAdmin.js';
 
+import usersGet from '../services/user/api/usersGet.js';
+
 //
 const whitelist_filetypes = [
 	'image/png',
@@ -53,6 +55,12 @@ const upload = multer({
 const UserRouter = express.Router();
 
 UserRouter.get('/', (req, res) => {
+	usersGet().then((user: any) =>{
+		res.render('viewusers', {user: user});
+	})
+});
+
+UserRouter.get('/add', (req, res) => {
 	res.render('adduser');
 });
 
