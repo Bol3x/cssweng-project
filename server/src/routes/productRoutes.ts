@@ -19,6 +19,8 @@ import validateProducts from '../services/validation/validateProducts.js';
 
 import productsGet from '../services/user/api/productsGet.js';
 
+import dashboardDataGet from '../services/user/api/dashboardDataGet.js';
+
 const ProductRouter: Router = express.Router();
 
 ProductRouter.get('/', (req, res) => {
@@ -36,6 +38,13 @@ ProductRouter.get('/add', (req, res) => {
 ProductRouter.get('/update', (req, res) => {
 	productsGet().then((product: any) =>{
 		res.render('updateproduct', {product: product});
+	})
+});
+
+
+ProductRouter.get('/dashboard/:id', (req, res) => {
+	dashboardDataGet(':id').then((trans_data: any) => {
+		res.render('dashboard', trans_data);
 	})
 });
 
