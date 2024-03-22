@@ -17,7 +17,7 @@ MySQL Server
 
 For testing:
 install all dependencies on the `server` folder using ``npm install`` on their directories.
-initialize the database by first calling `npx prisma migrate dev --name init`, 
+initialize the database to your system by first calling `npx prisma migrate dev --name init`, 
 and then call `npm run init-db` to initialize the database with an initial admin account.
 
 in the .env file, ensure that the contents adhere to the credentials of the root (i.e. change the password to the password set of the root local instance of the database)
