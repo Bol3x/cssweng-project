@@ -1,6 +1,7 @@
 # 9 Works Inventory Management System
 
 Developed By Team 1 - CSSWENG S11
+Updated with Security features for Group 1 - CSSECDV S11
 This is a project for 9 Works Hardware, also in fulfillment of the CSSWENG course.
 
 Currently hosted at Render: https://nineworks-inventory.onrender.com/
