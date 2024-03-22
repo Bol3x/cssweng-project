@@ -21,6 +21,7 @@ export const LoadRoutes = (app: Router) => {
 	app.use('/category', userCheckAuth, CategoryRouter);
 	app.use('/user', userCheckAuth, userCheckAdmin, UserRouter);
 	app.use('/auth', UserAuthRouter);
+	app.use('/log', userCheckAuth, userCheckAdmin, exportLogs);
 
 	app.use(ErrorHandler);
 
