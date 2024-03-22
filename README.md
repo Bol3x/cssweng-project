@@ -15,6 +15,6 @@ For testing:
 install all dependencies on both `client` and `server` folders using ``npm install`` on their directories.
 
 On the Server directory:
-Run `npm run build`, then run `npm run start` and open the application through `http://localhost:3000`
+Run `npm run build`, then run `npm run start` and open the application through `https://localhost:3001`
 
 For the database connection, place the link in a .env file and configure the table contents by calling `npx prisma migrate`, ad well as `npm run init-db` inside the server folder
